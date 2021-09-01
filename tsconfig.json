@@ -18,7 +18,8 @@
     "baseUrl": ".",
     "paths": {
       "~ui/*": ["src/ui/*"]
-    }
+    },
+    "useUnknownInCatchVariables": true
   },
   "include": ["./src"]
 }
