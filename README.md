@@ -6,8 +6,8 @@
   - https://vitejs.dev/
 - Storybook
   - https://storybook.js.org/
-- stitches
-  - https://stitches.dev/
+- linaria
+  - https://linaria.dev/
 
 ## Testing
 

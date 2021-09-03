@@ -18,10 +18,15 @@
     "build": "tsc && vite build",
     "serve": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "codegen": "swagger-typescript-api -p src/api/swagger.json -o src/api -n api-type.ts --no-client"
   },
   "dependencies": {
-    "@stitches/react": "^1.0.0",
+    "@linaria/babel-preset": "^3.0.0-beta.12",
+    "@linaria/core": "^3.0.0-beta.4",
+    "@linaria/react": "^3.0.0-beta.7",
+    "@linaria/shaker": "^3.0.0-beta.12",
+    "axios": "^0.21.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-router-dom": "^5.2.1",
@@ -29,6 +34,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@linaria/rollup": "^3.0.0-beta.12",
     "@storybook/addon-actions": "^6.3.7",
     "@storybook/addon-essentials": "^6.3.7",
     "@storybook/addon-links": "^6.3.7",
@@ -53,6 +59,7 @@
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-typescript-sort-keys": "^1.8.0",
     "storybook-builder-vite": "0.0.12",
+    "swagger-typescript-api": "^9.2.0",
     "ts-node": "^10.2.1",
     "typescript": "4.4.2",
     "vite": "^2.5.2"
