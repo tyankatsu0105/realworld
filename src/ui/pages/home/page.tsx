@@ -6,8 +6,8 @@ import { Container } from './container';
 // Component
 // ------------------------------------
 
-const Page = () => {
+const Home = () => {
   return <Container />;
 };
 
-export default Page;
+export default Home;

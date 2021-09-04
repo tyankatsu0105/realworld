@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Presentational } from './presentational';
+import { Component } from './presentational';
 
 // ------------------------------------
 // Props
@@ -13,5 +13,5 @@ type Props = {};
 // ------------------------------------
 
 export const Container = (props: Props) => {
-  return <Presentational />;
+  return <Component />;
 };
