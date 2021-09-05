@@ -1,10 +1,10 @@
 import pluginLinaria from '@linaria/rollup';
 import reactRefresh from '@vitejs/plugin-react-refresh';
-import path from 'path';
-import { defineConfig } from 'vite';
+import * as path from 'path';
+import { defineConfig, UserConfig } from 'vite';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export const createConfig = (rootPath: string): UserConfig => ({
   plugins: [
     reactRefresh(),
     pluginLinaria({
@@ -14,9 +14,13 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '~api': path.resolve(__dirname, './src/api'),
-      '~application': path.resolve(__dirname, './src/application'),
-      '~ui': path.resolve(__dirname, './src/ui'),
+      '~api': path.resolve(rootPath, 'src/api'),
+      '~application': path.resolve(rootPath, 'src/application'),
+      '~ui': path.resolve(rootPath, 'src/ui'),
     },
   },
 });
+
+const config = createConfig(__dirname);
+
+export default defineConfig(config);
