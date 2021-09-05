@@ -1,6 +1,5 @@
+import { styled } from '@linaria/react';
 import * as React from 'react';
-
-import { Header } from '~ui/design/recipes';
 
 // ------------------------------------
 // Props
@@ -12,10 +11,12 @@ type Props = {};
 // Component
 // ------------------------------------
 
-export const Presentational = (props: Props) => (
-  <React.Suspense fallback={<div>loading header...</div>}>
-    <Header />
-  </React.Suspense>
-);
+const Button = styled.button`
+  border-radius: 8px;
+  background-color: #ccc;
+  color: #fff;
+`;
+
+export const Presentational = (props: Props) => <Button>Presentational</Button>;
 
 export const Component = React.memo(Presentational);

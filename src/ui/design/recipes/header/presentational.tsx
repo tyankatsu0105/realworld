@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Header } from '~ui/design/recipes';
+import { AppBar } from '~ui/design/components';
 
 // ------------------------------------
 // Props
@@ -13,8 +13,8 @@ type Props = {};
 // ------------------------------------
 
 export const Presentational = (props: Props) => (
-  <React.Suspense fallback={<div>loading header...</div>}>
-    <Header />
+  <React.Suspense fallback={<div>loading AppBar...</div>}>
+    <AppBar />
   </React.Suspense>
 );
 
