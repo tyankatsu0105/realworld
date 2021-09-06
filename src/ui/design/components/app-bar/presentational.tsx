@@ -17,6 +17,6 @@ const Button = styled.button`
   color: #fff;
 `;
 
-export const Presentational = (props: Props) => <Button>Presentational</Button>;
+const Presentational = (props: Props) => <Button>Presentational</Button>;
 
 export const Component = React.memo(Presentational);

@@ -92,3 +92,11 @@ https://redux.js.org/usage/structuring-reducers/basic-reducer-structure
 #### ui
 
 > UI state: data that represents how the UI is currently displayed (such as "The EditTodo modal dialog is currently open")
+
+### styles
+
+UI のスタイリングに関するファイルを設置する場所
+
+#### theme
+
+styled components の theme のような、スタイリングに関する固定値をオブジェクトで表現する

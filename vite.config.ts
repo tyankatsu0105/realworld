@@ -1,4 +1,5 @@
 import pluginLinaria from '@linaria/rollup';
+import pluginSVGR from '@svgr/rollup';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import * as path from 'path';
 import { defineConfig, UserConfig } from 'vite';
@@ -7,6 +8,7 @@ import { defineConfig, UserConfig } from 'vite';
 export const createConfig = (rootPath: string): UserConfig => ({
   plugins: [
     reactRefresh(),
+    pluginSVGR(),
     pluginLinaria({
       displayName: process.env.NODE_ENV !== 'production',
       sourceMap: process.env.NODE_ENV !== 'production',

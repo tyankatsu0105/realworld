@@ -12,7 +12,7 @@ type Props = {};
 // Component
 // ------------------------------------
 
-export const Presentational = (props: Props) => (
+const Presentational = (props: Props) => (
   <React.Suspense fallback={<div>loading header...</div>}>
     <Header />
   </React.Suspense>

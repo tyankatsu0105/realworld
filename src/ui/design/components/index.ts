@@ -1,2 +1,2 @@
 export * from './app-bar';
-export * from './progress';
+export * from './icon';
