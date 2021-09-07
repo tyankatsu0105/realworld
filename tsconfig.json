@@ -23,5 +23,5 @@
     },
     "useUnknownInCatchVariables": true
   },
-  "include": ["./src", "@types"]
+  "include": ["./src"]
 }

@@ -15,14 +15,16 @@ const rootPath = path.resolve(__dirname, '../');
 const viteConfig = createConfig(rootPath);
 
 const config: Config = {
-  stories: ['../src/**/*.stories.tsx'],
+  stories: ['../src/**/stories.tsx'],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   core: {
     builder: 'storybook-builder-vite',
   },
   viteFinal: (config) => {
-    if (config.plugins && viteConfig.plugins)
-      config.plugins = [...config.plugins, ...viteConfig.plugins];
+    if (config.plugins && viteConfig.plugins) {
+      const [, ...plugins] = viteConfig.plugins;
+      config.plugins = [...config.plugins, ...plugins];
+    }
 
     if (
       config.resolve &&
