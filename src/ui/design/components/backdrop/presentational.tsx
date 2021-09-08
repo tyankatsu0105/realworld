@@ -28,7 +28,7 @@ export const Component = React.memo(Presentational);
 // ------------------------------------
 
 const Backdrop = styled.div`
-  color: ${() => Theme.palettes.common['white']};
+  color: ${() => Theme.palettes.material.common['white']};
   position: fixed;
   left: 0;
   top: 0;
@@ -40,6 +40,6 @@ const Backdrop = styled.div`
   background-color: ${() =>
     Utilities.transparentize({
       alpha: 0.5,
-      color: Theme.palettes.blueGray[900],
+      color: Theme.palettes.material.blueGray[900],
     })};
 `;

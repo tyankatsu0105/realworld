@@ -1,7 +1,7 @@
 /**
  * Based on `2014 Material Design color palettes`
  */
-export const palettes = {
+const materialPalettes = {
   amber: {
     100: '#FFECB3',
     200: '#FFE082',
@@ -297,5 +297,19 @@ export const palettes = {
     A200: '#FFFF00',
     A400: '#FFEA00',
     A700: '#FFD600',
+  },
+} as const;
+
+export const palettes = {
+  brand: {
+    accent: {
+      ...materialPalettes.teal,
+    },
+    primary: {
+      ...materialPalettes.blueGray,
+    },
+  },
+  material: {
+    ...materialPalettes,
   },
 } as const;
