@@ -1,4 +1,5 @@
 import 'the-new-css-reset/css/reset.css';
+import '~ui/styles/globals.ts';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

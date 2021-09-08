@@ -1,3 +1,6 @@
+import 'the-new-css-reset/css/reset.css';
+import '~ui/styles/globals.ts';
+
 import * as React from 'react';
 import { BaseDecorators } from '@storybook/addons';
 
