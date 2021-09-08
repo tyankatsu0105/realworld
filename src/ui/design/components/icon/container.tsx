@@ -6,7 +6,7 @@ import { Component } from './presentational';
 // Props
 // ------------------------------------
 
-type Props = {
+type Props = React.HTMLAttributes<HTMLElement> & {
   variant: keyof ReturnType<typeof useIcons>;
 };
 
@@ -17,7 +17,7 @@ type Props = {
 const Icon = (props: Props) => {
   const icons = useIcons();
 
-  return <Component icons={icons} variant={props.variant} />;
+  return <Component icons={icons} {...props} />;
 };
 
 export default Icon;

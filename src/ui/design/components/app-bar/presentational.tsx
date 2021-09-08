@@ -5,7 +5,7 @@ import * as React from 'react';
 // Props
 // ------------------------------------
 
-type Props = {};
+type Props = React.HTMLAttributes<HTMLElement> & {};
 
 // ------------------------------------
 // Component
@@ -17,6 +17,8 @@ const Button = styled.button`
   color: #fff;
 `;
 
-const Presentational = (props: Props) => <Button>Presentational</Button>;
+const Presentational = (props: Props) => (
+  <Button {...props}>Presentational</Button>
+);
 
 export const Component = React.memo(Presentational);

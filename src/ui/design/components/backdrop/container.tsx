@@ -12,8 +12,8 @@ type Props = React.HTMLAttributes<HTMLElement> & {};
 // Component
 // ------------------------------------
 
-const AppBar = (props: Props) => {
+const Backdrop: React.FC<Props> = (props) => {
   return <Component {...props} />;
 };
 
-export default AppBar;
+export default Backdrop;

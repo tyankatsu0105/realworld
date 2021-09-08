@@ -5,7 +5,7 @@ import { useIcons } from './facade';
 // Props
 // ------------------------------------
 
-type Props = {
+type Props = React.HTMLAttributes<HTMLElement> & {
   icons: ReturnType<typeof useIcons>;
   variant: keyof ReturnType<typeof useIcons>;
 };
@@ -15,9 +15,14 @@ type Props = {
 // ------------------------------------
 
 const Presentational = (props: Props) => {
-  const Component = props.icons[props.variant];
+  const { icons, variant, ...restProps } = props;
+  const Component = icons[variant];
 
-  return <Component />;
+  return (
+    <div {...restProps}>
+      <Component />
+    </div>
+  );
 };
 
 export const Component = React.memo(Presentational);
