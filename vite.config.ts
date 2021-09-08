@@ -4,26 +4,46 @@ import reactRefresh from '@vitejs/plugin-react-refresh';
 import * as path from 'path';
 import { defineConfig, Plugin, UserConfig } from 'vite';
 
-// https://vitejs.dev/config/
-export const createConfig = (rootPath: string): UserConfig => ({
-  plugins: [
-    reactRefresh(),
-    (pluginSVGR() as unknown) as Plugin,
-    // (pluginSVGR() as unknown) as Plugin,
-    pluginLinaria({
-      displayName: process.env.NODE_ENV !== 'production',
-      sourceMap: process.env.NODE_ENV !== 'production',
-    }),
-  ],
+/**
+ * https://vitejs.dev/config/
+ */
+export const createConfig = (rootPath: string): UserConfig => {
+  const alias = {
+    '~api': path.resolve(rootPath, 'src/api'),
+    '~application': path.resolve(rootPath, 'src/application'),
+    '~ui': path.resolve(rootPath, 'src/ui'),
+  };
 
-  resolve: {
-    alias: {
-      '~api': path.resolve(rootPath, 'src/api'),
-      '~application': path.resolve(rootPath, 'src/application'),
-      '~ui': path.resolve(rootPath, 'src/ui'),
+  return {
+    plugins: [
+      reactRefresh(),
+      (pluginSVGR() as unknown) as Plugin,
+      pluginLinaria({
+        /**
+         * NOTE: https://github.com/callstack/linaria/issues/811#issuecomment-890926268
+         * https://github.com/callstack/linaria/issues/630
+         */
+        babelOptions: {
+          plugins: [
+            [
+              require.resolve('babel-plugin-module-resolver'),
+              {
+                alias,
+                root: ['./'],
+              },
+            ],
+          ],
+        },
+        displayName: process.env.NODE_ENV !== 'production',
+        sourceMap: process.env.NODE_ENV !== 'production',
+      }),
+    ],
+
+    resolve: {
+      alias,
     },
-  },
-});
+  };
+};
 
 const config = createConfig(__dirname);
 
