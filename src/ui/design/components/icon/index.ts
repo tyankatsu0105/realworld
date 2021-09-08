@@ -1,3 +1,1 @@
-import { lazy } from 'react';
-
-export const Icon = lazy(() => import('./container'));
+export { default as Icon } from './container';

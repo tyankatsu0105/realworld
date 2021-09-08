@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Header } from '~ui/design/recipes';
+import { Lazy } from '~ui/design/recipes';
 
 // ------------------------------------
 // Props
@@ -14,7 +14,7 @@ type Props = {};
 
 const Presentational = (props: Props) => (
   <React.Suspense fallback={<div>loading header...</div>}>
-    <Header />
+    <Lazy.Header />
   </React.Suspense>
 );
 

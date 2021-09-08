@@ -4,7 +4,7 @@ import { GlobalStyle } from '../src/ui/styles/globals';
 import * as React from 'react';
 import { BaseDecorators } from '@storybook/addons';
 
-const withSuspence: BaseDecorators<any>[number] = (Story) => {
+const withSuspense: BaseDecorators<any>[number] = (Story) => {
   return (
     <React.Suspense fallback="">
       <GlobalStyle>{Story()}</GlobalStyle>
@@ -12,7 +12,7 @@ const withSuspence: BaseDecorators<any>[number] = (Story) => {
   );
 };
 
-export const decorators = [withSuspence];
+export const decorators = [withSuspense];
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

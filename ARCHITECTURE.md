@@ -50,7 +50,9 @@ https://bradfrost.com/blog/post/design-system-components-recipes-and-snowflakes/
 各ページを訪れた際に参照するファイルを設置する場所
 
 - index.ts
-  - lazy で包むところ
+  - 外に露出したいファイルを export するところ
+- lazy.ts
+  - container を lazy で包むところ
 - page.ts
   - page 固有の情報（routing とか）を処理して container に渡すところ
 - hooks.ts
