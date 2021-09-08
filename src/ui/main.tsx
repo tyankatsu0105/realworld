@@ -1,17 +1,19 @@
 import 'the-new-css-reset/css/reset.css';
-import '~ui/styles/globals.ts';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as ReactRouterDom from 'react-router-dom';
 
 import App from '~ui/App';
+import { GlobalStyle } from '~ui/styles/globals';
 
 const render = () => {
   ReactDOM.render(
     <React.StrictMode>
       <ReactRouterDom.BrowserRouter>
-        <App />
+        <GlobalStyle>
+          <App />
+        </GlobalStyle>
       </ReactRouterDom.BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')

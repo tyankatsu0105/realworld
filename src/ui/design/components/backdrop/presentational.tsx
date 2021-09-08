@@ -7,15 +7,13 @@ import { Theme, Utilities } from '~ui/styles';
 // Props
 // ------------------------------------
 
-type Props = React.HTMLAttributes<HTMLElement> & {
-  children?: React.ReactNode | undefined;
-} & {};
+type Props = React.HTMLAttributes<HTMLElement> & {};
 
 // ------------------------------------
 // Component
 // ------------------------------------
 
-const Presentational = (props: Props) => {
+const Presentational: React.FC<Props> = (props) => {
   const { children, ...restProps } = props;
 
   return <Backdrop {...restProps}>{children}</Backdrop>;

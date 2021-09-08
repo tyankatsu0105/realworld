@@ -308,6 +308,9 @@ export const palettes = {
     primary: {
       ...materialPalettes.blueGray,
     },
+    text: {
+      primary: '#333',
+    },
   },
   material: {
     ...materialPalettes,

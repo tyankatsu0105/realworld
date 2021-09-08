@@ -1,11 +1,15 @@
 import 'the-new-css-reset/css/reset.css';
-import '~ui/styles/globals.ts';
+import { GlobalStyle } from '../src/ui/styles/globals';
 
 import * as React from 'react';
 import { BaseDecorators } from '@storybook/addons';
 
 const withSuspence: BaseDecorators<any>[number] = (Story) => {
-  return <React.Suspense fallback="">{Story()}</React.Suspense>;
+  return (
+    <React.Suspense fallback="">
+      <GlobalStyle>{Story()}</GlobalStyle>
+    </React.Suspense>
+  );
 };
 
 export const decorators = [withSuspence];
