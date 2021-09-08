@@ -22,7 +22,12 @@ const config: Config = {
   },
   viteFinal: (config) => {
     if (config.plugins && viteConfig.plugins) {
-      const [, ...plugins] = viteConfig.plugins;
+      const plugins = viteConfig.plugins.filter((plugin) => {
+        if (!plugin || Array.isArray(plugin) || typeof plugin !== 'object')
+          return;
+        return plugin.name !== 'react-refresh';
+      });
+
       config.plugins = [...config.plugins, ...plugins];
     }
 
