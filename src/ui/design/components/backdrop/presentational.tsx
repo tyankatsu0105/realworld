@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 import * as React from 'react';
 
-import { theme } from '~ui/styles';
+import { Theme, Utilities } from '~ui/styles';
 
 // ------------------------------------
 // Props
@@ -28,7 +28,7 @@ export const Component = React.memo(Presentational);
 // ------------------------------------
 
 const Backdrop = styled.div`
-  color: ${() => theme.palettes.common['white']};
+  color: ${() => Theme.palettes.common['white']};
   position: fixed;
   left: 0;
   top: 0;
@@ -37,5 +37,9 @@ const Backdrop = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: ${() => theme.palettes.blueGray[900]};
+  background-color: ${() =>
+    Utilities.transparentize({
+      alpha: 0.5,
+      color: Theme.palettes.blueGray[900],
+    })};
 `;

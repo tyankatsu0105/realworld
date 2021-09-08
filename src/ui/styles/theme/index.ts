@@ -1,5 +1,1 @@
-import { palettes } from './palettes';
-
-export const theme = {
-  palettes,
-};
+export * from './palettes';

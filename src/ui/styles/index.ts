@@ -1,1 +1,2 @@
-export * from './theme';
+export * as Theme from './theme';
+export * as Utilities from './utilities';
