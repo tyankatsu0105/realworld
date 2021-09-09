@@ -1,3 +1,3 @@
 import { lazy } from 'react';
 
-export const Icon = lazy(() => import('./container'));
+export const IconLazy = lazy(() => import('./container'));

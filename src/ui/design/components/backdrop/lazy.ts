@@ -1,1 +1,3 @@
-export { default as Backdrop } from './container';
+import { lazy } from 'react';
+
+export const BackdropLazy = lazy(() => import('./container'));

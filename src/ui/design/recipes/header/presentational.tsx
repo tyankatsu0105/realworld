@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { URI } from '~application/presenter/route';
 import logo from '~ui/assets/logo.svg';
-import { Lazy } from '~ui/design/components';
+import { AppBarLazy } from '~ui/design/components';
 
 // ------------------------------------
 // Props
@@ -34,7 +34,7 @@ export const Component = React.memo(Presentational);
 // styles
 // ------------------------------------
 
-const StyledAppBar = styled(Lazy.AppBar)`
+const StyledAppBar = styled(AppBarLazy)`
   position: sticky;
   top: 0;
   left: 0;

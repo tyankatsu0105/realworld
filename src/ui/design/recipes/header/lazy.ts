@@ -1,3 +1,3 @@
 import { lazy } from 'react';
 
-export const Header = lazy(() => import('./container'));
+export const HeaderLazy = lazy(() => import('./container'));

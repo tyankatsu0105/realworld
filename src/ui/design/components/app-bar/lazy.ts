@@ -1,3 +1,3 @@
 import { lazy } from 'react';
 
-export const AppBar = lazy(() => import('./container'));
+export const AppBarLazy = lazy(() => import('./container'));
