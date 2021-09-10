@@ -33,7 +33,7 @@ const PaletteList = (props: PaletteListProps) => {
                       {Object.entries(paletteValue).map(
                         ([colorKey, colorValue]) => (
                           <li key={colorKey}>
-                            <PalleteColorItem color={colorValue} />
+                            <PalleteColorItem color={colorValue as string} />
                             {colorKey}
                           </li>
                         )

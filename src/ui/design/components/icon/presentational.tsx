@@ -20,7 +20,7 @@ const Presentational = (props: Props) => {
 
   return (
     <div {...restProps}>
-      <Component />
+      <Component style={{ width: '100%' }} />
     </div>
   );
 };

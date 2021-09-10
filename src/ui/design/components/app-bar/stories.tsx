@@ -1,12 +1,14 @@
-import { Meta } from '@storybook/react';
-import * as React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
 
 import { AppBar } from './index';
 
 export default {
   title: 'Design/Components/AppBar',
-} as Meta;
+} as ComponentMeta<typeof AppBar>;
 
-export const Primary = (): React.ReactElement => {
-  return <AppBar />;
-};
+const Template: ComponentStory<typeof AppBar> = () => <AppBar />;
+
+export const Primary = Template.bind({});
+
+Primary.args = {};

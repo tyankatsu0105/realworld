@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/react';
+import { styled } from '@linaria/react';
+import { ComponentMeta } from '@storybook/react';
 import * as React from 'react';
 
 import { useIcons } from './facade';
@@ -6,7 +7,7 @@ import { Icon } from './index';
 
 export default {
   title: 'Design/Components/Icon',
-} as Meta;
+} as ComponentMeta<typeof Icon>;
 
 export const Primary = (): React.ReactElement => {
   const icons = useIcons();
@@ -18,7 +19,7 @@ export const Primary = (): React.ReactElement => {
       {keys.map((key) => {
         return (
           <li key={key}>
-            <Icon variant={key} />
+            <StyledIcon variant={key} />
             <p>{key}</p>
           </li>
         );
@@ -26,3 +27,7 @@ export const Primary = (): React.ReactElement => {
     </ul>
   );
 };
+
+const StyledIcon = styled(Icon)`
+  width: 100px;
+`;

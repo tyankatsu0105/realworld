@@ -33,6 +33,11 @@ export const createConfig = (rootPath: string): UserConfig => {
               },
             ],
           ],
+          presets: [
+            require.resolve('@babel/preset-react'),
+            require.resolve('@babel/preset-typescript'),
+            require.resolve('@linaria/babel-preset'),
+          ],
         },
         displayName: process.env.NODE_ENV !== 'production',
         sourceMap: process.env.NODE_ENV !== 'production',
