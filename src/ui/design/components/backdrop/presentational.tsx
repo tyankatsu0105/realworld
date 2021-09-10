@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 import * as React from 'react';
 
-import { Theme, Utilities } from '~ui/styles';
+import { Theme } from '~ui/styles';
 
 // ------------------------------------
 // Props
@@ -36,7 +36,7 @@ const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${() =>
-    Utilities.transparentize({
+    Theme.color.transparentize({
       alpha: 0.5,
       color: Theme.palettes.material.blueGray[900],
     })};
