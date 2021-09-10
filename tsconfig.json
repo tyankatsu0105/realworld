@@ -21,7 +21,10 @@
       "~application/*": ["src/application/*"],
       "~api/*": ["src/api/*"]
     },
-    "useUnknownInCatchVariables": true
+    "useUnknownInCatchVariables": true,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "include": ["./src"]
 }
