@@ -1,10 +1,11 @@
 import { styled } from '@linaria/react';
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { URI } from '~application/presenter/route';
 import logo from '~ui/assets/logo.svg';
 import { AppBarLazy } from '~ui/design/components';
+import { Theme } from '~ui/styles';
 
 // ------------------------------------
 // Props
@@ -19,11 +20,25 @@ type Props = {};
 const Presentational = (props: Props) => (
   <React.Suspense fallback={<div>loading AppBar...</div>}>
     <StyledAppBar>
-      <div>
-        <Link to={URI.home}>
-          <Logo alt="" src={logo} />
-        </Link>
-      </div>
+      <LayoutBox>
+        <div>
+          <NavLink to={URI.home}>
+            <Logo alt="" src={logo} />
+          </NavLink>
+        </div>
+
+        <nav>
+          <HeaderNavItem exact activeClassName="active" to={URI.home}>
+            Home
+          </HeaderNavItem>
+          <HeaderNavItem exact activeClassName="active" to={URI.login}>
+            Sign in
+          </HeaderNavItem>
+          <HeaderNavItem exact activeClassName="active" to={URI.register}>
+            Sign up
+          </HeaderNavItem>
+        </nav>
+      </LayoutBox>
     </StyledAppBar>
   </React.Suspense>
 );
@@ -41,4 +56,18 @@ const StyledAppBar = styled(AppBarLazy)`
 `;
 const Logo = styled.img`
   width: 70px;
+`;
+const LayoutBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const HeaderNavItem = styled(NavLink)`
+  & + & {
+    margin-left: ${() => Theme.spacer(3)}px;
+  }
+
+  &.active {
+    color: ${() => Theme.palettes.brand.accent.A700};
+  }
 `;
