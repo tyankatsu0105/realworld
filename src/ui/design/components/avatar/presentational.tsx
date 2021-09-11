@@ -19,8 +19,9 @@ type Props = React.ImgHTMLAttributes<HTMLImageElement> & {
 // Component
 // ------------------------------------
 
-const Presentational: React.FC<Props> = (props) => {
+const Presentational = (props: Props) => {
   const { className, variant, ...restProps } = props;
+
   return (
     <Wrap className={className} variant={variant}>
       {props.src ? <Img {...restProps} /> : <Avatar />}
@@ -48,7 +49,9 @@ const Wrap = styled.div<WrapProps>`
     }
   }};
 
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
   background-color: ${() => Theme.palettes.brand.primary[100]};

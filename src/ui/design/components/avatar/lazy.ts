@@ -1,3 +1,3 @@
 import { lazy } from 'react';
 
-export const AvatorLazy = lazy(() => import('./container'));
+export const AvatarLazy = lazy(() => import('./container'));

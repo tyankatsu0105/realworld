@@ -20,4 +20,8 @@ const Style = styled.div`
   button {
     cursor: pointer;
   }
+
+  *:focus-visible {
+    outline: 2px solid blue;
+  }
 `;

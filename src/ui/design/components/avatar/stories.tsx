@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { variant } from './facade';
-import { Avator } from './index';
+import { Avatar } from './index';
 
 export default {
   argTypes: {
@@ -10,13 +10,11 @@ export default {
       control: { options: Object.values(variant), type: 'select' },
     },
   },
-  title: 'Design/Components/Avator',
-} as ComponentMeta<typeof Avator>;
+  title: 'Design/Components/Avatar',
+} as ComponentMeta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avator> = (args) => {
-  const { children, ...restArgs } = args;
-
-  return <Avator {...restArgs}>{children}</Avator>;
+const Template: ComponentStory<typeof Avatar> = (args) => {
+  return <Avatar {...args} />;
 };
 
 export const Primary = Template.bind({});

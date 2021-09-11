@@ -12,6 +12,6 @@ type Props = React.ComponentPropsWithRef<typeof Component>;
 // Component
 // ------------------------------------
 
-const Avator: React.FC<Props> = (props) => <Component {...props} />;
+const Avatar = (props: Props) => <Component {...props} />;
 
-export default Avator;
+export default Avatar;

@@ -1,2 +1,2 @@
-export { default as Avator } from './container';
+export { default as Avatar } from './container';
 export * from './lazy';
