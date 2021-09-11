@@ -23,6 +23,6 @@ export const Component = React.memo(Presentational);
 
 const Wrap = styled.div`
   width: 100%;
-  padding: ${() => Theme.spacer(5)}px ${() => Theme.spacer(25)}px;
+  padding: ${() => Theme.spacer(3)}px ${() => Theme.spacer(25)}px;
   background-color: ${() => Theme.palettes.material.common.white};
 `;

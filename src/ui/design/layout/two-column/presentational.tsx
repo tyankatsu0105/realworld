@@ -56,5 +56,5 @@ const Wrap = styled.div<WrapProps>`
   }};
 
   column-gap: 10px;
-  padding: ${() => Theme.spacer(5)}px ${() => Theme.spacer(25)}px;
+  padding: ${() => Theme.spacer(3)}px ${() => Theme.spacer(25)}px;
 `;
