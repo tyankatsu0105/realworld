@@ -39,6 +39,17 @@ UI を構築するためのファイルを設置する場所
 UI を構築するコンポーネントを設置する場所
 https://bradfrost.com/blog/post/design-system-components-recipes-and-snowflakes/
 
+- index.ts
+  - 外に露出したいファイルを export するところ
+- lazy.ts
+  - container を lazy で包むところ
+- facade.ts
+  - 該当 component で利用する色んな情報やロジックを返すところ
+- container.ts
+  - page.ts や usePage.ts で取得した色んなものを presentational にわたすところ
+- presentational.ts
+  - container から渡ってきたものをコンポーネントに渡すところ layout を決めるところでもある
+
 #### components
 
 一番小さい単位でのコンポーネントを設置する場所
@@ -68,8 +79,8 @@ ex) 1 カラム、2 カラム、
   - container を lazy で包むところ
 - page.ts
   - page 固有の情報（routing とか）を処理して container に渡すところ
-- hooks.ts
-  - page で利用する色んな情報やロジックを返すところ
+- facade.ts
+  - 該当 component で利用する色んな情報やロジックを返すところ
 - container.ts
   - page.ts や usePage.ts で取得した色んなものを presentational にわたすところ
 - presentational.ts
