@@ -1,6 +1,9 @@
 import { styled } from '@linaria/react';
 import * as React from 'react';
 
+import { Theme } from '~ui/styles';
+
+import { ReactComponent as Avatar } from './assets/avatar.svg';
 import { variant } from './facade';
 // ------------------------------------
 // Props
@@ -19,9 +22,9 @@ type Props = React.ImgHTMLAttributes<HTMLImageElement> & {
 const Presentational: React.FC<Props> = (props) => {
   const { className, variant, ...restProps } = props;
   return (
-    <Avatar className={className} variant={variant}>
-      <Img {...restProps} />
-    </Avatar>
+    <Wrap className={className} variant={variant}>
+      {props.src ? <Img {...restProps} /> : <Avatar />}
+    </Wrap>
   );
 };
 
@@ -30,10 +33,10 @@ export const Component = React.memo(Presentational);
 // ------------------------------------
 // styles
 // ------------------------------------
-type AvatarProps = {
+type WrapProps = {
   variant: Props['variant'];
 };
-const Avatar = styled.div<AvatarProps>`
+const Wrap = styled.div<WrapProps>`
   border-radius: ${(props) => {
     switch (props.variant) {
       case 'rounded':
@@ -48,7 +51,8 @@ const Avatar = styled.div<AvatarProps>`
   display: inline-block;
   width: 40px;
   height: 40px;
-  background-color: #fff;
+  background-color: ${() => Theme.palettes.brand.primary[100]};
+  color: ${() => Theme.palettes.brand.primary[700]};
   overflow: hidden;
   flex-shrink: 0;
   flex-grow: 0;
