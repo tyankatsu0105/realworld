@@ -6,7 +6,7 @@ import { Component } from './presentational';
 // Props
 // ------------------------------------
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {};
+type Props = React.ComponentPropsWithRef<typeof Component>;
 
 // ------------------------------------
 // Component

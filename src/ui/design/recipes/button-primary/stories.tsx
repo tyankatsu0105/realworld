@@ -13,7 +13,20 @@ const Template: ComponentStory<typeof ButtonPrimary> = (args) => {
   return <ButtonPrimary {...restArgs}>{children}</ButtonPrimary>;
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
-  children: 'ButtonPrimary',
+export const Outlined = Template.bind({});
+Outlined.args = {
+  children: 'outlined',
+  variant: 'outlined',
+};
+
+export const Contained = Template.bind({});
+Contained.args = {
+  children: 'contained',
+  variant: 'contained',
+};
+
+export const Text = Template.bind({});
+Text.args = {
+  children: 'text',
+  variant: 'text',
 };

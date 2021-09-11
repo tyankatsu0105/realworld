@@ -6,9 +6,7 @@ import { Component } from './presentational';
 // Props
 // ------------------------------------
 
-type Props = React.HTMLAttributes<HTMLElement> & {
-  variant: keyof ReturnType<typeof useIcons>;
-};
+type Props = Omit<React.ComponentPropsWithRef<typeof Component>, 'icons'>;
 
 // ------------------------------------
 // Component

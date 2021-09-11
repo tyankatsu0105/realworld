@@ -1,14 +1,12 @@
 import * as React from 'react';
 
-import { Button } from '~ui/design/components';
-
 import { Component } from './presentational';
 
 // ------------------------------------
 // Props
 // ------------------------------------
 
-type Props = React.ComponentPropsWithRef<typeof Button>;
+type Props = React.ComponentPropsWithRef<typeof Component>;
 
 // ------------------------------------
 // Component
