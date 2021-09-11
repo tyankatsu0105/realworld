@@ -7,9 +7,7 @@ import { BaseDecorators } from '@storybook/addons';
 import { BrowserRouter } from 'react-router-dom';
 
 export const Primary: BaseDecorators<any>[number] = (Story) => (
-  <React.Suspense fallback="">
-    <BrowserRouter>
-      <GlobalStyle>{Story()}</GlobalStyle>
-    </BrowserRouter>
-  </React.Suspense>
+  <BrowserRouter>
+    <GlobalStyle>{Story()}</GlobalStyle>
+  </BrowserRouter>
 );

@@ -41,9 +41,22 @@ https://bradfrost.com/blog/post/design-system-components-recipes-and-snowflakes/
 
 #### components
 
+一番小さい単位でのコンポーネントを設置する場所
+ex) Button
+
 #### recipes
 
+components 内のコンポーネントを用いて新たに作成したコンポーネントを設置する場所
+ex) Modal (depends on Button)
+
+#### layout
+
+レイアウトを決めるために使うコンポーネントを設置する場所
+ex) 1 カラム、2 カラム、
+
 #### snowflakes
+
+依存するコンポーネントに固有なスタイリングとかを施したい場合など、カスタマイズされたコンポーネントを設置する場所
 
 ### pages
 
