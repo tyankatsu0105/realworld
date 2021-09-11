@@ -24,6 +24,7 @@ const Presentational = (props: Props) => (
         <div>
           <NavLink to={URI.home}>
             <Logo alt="" src={logo} />
+            <p>A place to share your knowledge.</p>
           </NavLink>
         </div>
 
@@ -60,6 +61,7 @@ const Logo = styled.img`
 const LayoutBox = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const HeaderNavItem = styled(NavLink)`
