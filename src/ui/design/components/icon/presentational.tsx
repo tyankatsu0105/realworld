@@ -16,7 +16,7 @@ type Props = React.HTMLAttributes<HTMLElement> & {
 
 const Presentational = (props: Props) => {
   const { icons, variant, ...restProps } = props;
-  const Component = icons[variant];
+  const Component = React.useMemo(() => icons[variant], [variant, icons]);
 
   return (
     <div {...restProps}>
