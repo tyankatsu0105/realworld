@@ -6,13 +6,11 @@ import { Component } from './presentational';
 // Props
 // ------------------------------------
 
-type Props = React.ComponentPropsWithRef<typeof Component>;
-
 // ------------------------------------
 // Component
 // ------------------------------------
 
-const PageLoader = (props: Props) => {
+const PageLoader = () => {
   return <Component />;
 };
 

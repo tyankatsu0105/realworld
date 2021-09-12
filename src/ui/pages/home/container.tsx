@@ -6,12 +6,10 @@ import { Component } from './presentational';
 // Props
 // ------------------------------------
 
-type Props = {};
-
 // ------------------------------------
 // Component
 // ------------------------------------
 
-export const Container = (props: Props) => {
+export const Container = () => {
   return <Component />;
 };

@@ -8,13 +8,11 @@ import { Theme } from '~ui/styles';
 // Props
 // ------------------------------------
 
-type Props = {};
-
 // ------------------------------------
 // Component
 // ------------------------------------
 
-const Presentational = (props: Props) => (
+const Presentational = () => (
   <Wrap>
     <StyledIcon variant="bars" />
   </Wrap>

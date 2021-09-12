@@ -11,13 +11,11 @@ import { Theme } from '~ui/styles';
 // Props
 // ------------------------------------
 
-type Props = {};
-
 // ------------------------------------
 // Component
 // ------------------------------------
 
-const Presentational = (props: Props) => (
+const Presentational = () => (
   <React.Suspense fallback={<div>loading AppBar...</div>}>
     <StyledAppBar>
       <LayoutBox>
