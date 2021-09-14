@@ -3,9 +3,10 @@
  * https://jestjs.io/docs/configuration
  */
 
-import { Config } from '@jest/types';
-
-const config: Partial<Config.DefaultOptions> = {
+/**
+ * @type {import('@jest/types').Config.InitialOptions}
+ */
+module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -139,7 +140,7 @@ const config: Partial<Config.DefaultOptions> = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  // testEnvironment: "jest-environment-node",
+  testEnvironment: 'node',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -148,10 +149,7 @@ const config: Partial<Config.DefaultOptions> = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  // testMatch: [
-  //   "**/__tests__/**/*.[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).[tj]s?(x)"
-  // ],
+  testMatch: ['<rootDir>/**/*.spec.{ts,tsx}'],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
@@ -174,7 +172,29 @@ const config: Partial<Config.DefaultOptions> = {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
+      {
+        module: {
+          type: 'commonjs', // 出力するファイルをcommonjsとする
+        },
+        jsc: {
+          parser: {
+            syntax: 'typescript', // ソースコードをtypescriptとしてパースする
+            tsx: true, // jsx記法を許可する
+          },
+
+          transform: {
+            react: {
+              // 必須。省略すると "ReferenceError: React is not defined" が発生します
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
@@ -194,5 +214,3 @@ const config: Partial<Config.DefaultOptions> = {
   // Whether to use watchman for file crawling
   // watchman: true,
 };
-
-export default config;
