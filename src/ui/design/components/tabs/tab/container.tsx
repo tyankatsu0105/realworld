@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import { TabsContext } from '~ui/design/components';
-
+import { TabsContext } from '../facade';
 import { Component } from './presentational';
 
 // ------------------------------------
@@ -25,8 +24,8 @@ const Tab: React.FC<Props> = (props: Props) => {
   const currentTabValue = React.useContext(TabsContext);
 
   const isActive = React.useMemo(
-    () => props.__internal__childrenIndex === currentTabValue,
-    [props.__internal__childrenIndex, currentTabValue]
+    () => __internal__childrenIndex === currentTabValue,
+    [__internal__childrenIndex, currentTabValue]
   );
 
   const onClick = React.useCallback(

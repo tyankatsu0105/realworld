@@ -1,7 +1,6 @@
-import { styled } from '@linaria/react';
 import * as React from 'react';
 
-import { TabsContext } from './facade';
+import { TabPanelsContext } from './facade';
 // ------------------------------------
 // Props
 // ------------------------------------
@@ -19,11 +18,11 @@ const Presentational = (props: Props) => {
   const { childrenWithProps, value, ...restProps } = props;
 
   return (
-    <Wrap {...restProps}>
-      <TabsContext.Provider value={value}>
+    <div {...restProps}>
+      <TabPanelsContext.Provider value={value}>
         {childrenWithProps}
-      </TabsContext.Provider>
-    </Wrap>
+      </TabPanelsContext.Provider>
+    </div>
   );
 };
 
@@ -32,7 +31,3 @@ export const Component = React.memo(Presentational);
 // ------------------------------------
 // styles
 // ------------------------------------
-
-const Wrap = styled.div`
-  display: inline-flex;
-`;
