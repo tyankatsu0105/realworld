@@ -3,9 +3,8 @@ import { ComponentMeta } from '@storybook/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Tab } from '~ui/design/components';
-
 import { Tabs } from './index';
+import { Tab } from './tab';
 
 export default {
   title: 'Design/Components/Tabs',
