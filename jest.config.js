@@ -1,9 +1,8 @@
-/*
- * For a detailed explanation regarding each configuration property and type check, visit:
- * https://jestjs.io/docs/configuration
- */
+const swc = require('./.jest/swc');
 
 /**
+ * * For a detailed explanation regarding each configuration property and type check, visit:
+ * https://jestjs.io/docs/configuration
  * @type {import('@jest/types').Config.InitialOptions}
  */
 module.exports = {
@@ -173,27 +172,7 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    '^.+\\.(t|j)sx?$': [
-      '@swc/jest',
-      {
-        module: {
-          type: 'commonjs', // 出力するファイルをcommonjsとする
-        },
-        jsc: {
-          parser: {
-            syntax: 'typescript', // ソースコードをtypescriptとしてパースする
-            tsx: true, // jsx記法を許可する
-          },
-
-          transform: {
-            react: {
-              // 必須。省略すると "ReferenceError: React is not defined" が発生します
-              runtime: 'automatic',
-            },
-          },
-        },
-      },
-    ],
+    '^.+\\.(t|j)sx?$': ['@swc/jest', swc],
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
