@@ -6,7 +6,6 @@ import * as React from 'react';
 
 type Props = Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> & {
   childrenIndex: number;
-  isActive: boolean;
   onClick?: (
     params: {
       index: number;
@@ -20,16 +19,15 @@ type Props = Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> & {
 // ------------------------------------
 
 const Presentational: React.FC<Props> = (props) => {
-  const { children, childrenIndex, isActive, ...restProps } = props;
+  const { children, childrenIndex, ...restProps } = props;
   const onClick = React.useCallback(
     (event: React.MouseEvent<HTMLDivElement>) =>
       props.onClick && props.onClick({ index: childrenIndex }, event),
     [childrenIndex, props]
   );
-  const className = `${props.className} ${isActive ? 'active' : ''}`;
 
   return (
-    <div {...restProps} className={className} onClick={onClick}>
+    <div {...restProps} className={props.className} onClick={onClick}>
       {children}
     </div>
   );

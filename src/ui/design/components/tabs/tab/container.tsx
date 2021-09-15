@@ -11,6 +11,7 @@ type Props = Omit<
   React.ComponentPropsWithRef<typeof Component>,
   'isActive' | 'childrenIndex'
 > & {
+  __internal__activeClass?: string;
   __internal__childrenIndex?: number;
 };
 
@@ -38,11 +39,16 @@ const Tab: React.FC<Props> = (props: Props) => {
     [props]
   );
 
+  const className = React.useMemo(
+    () => `${props.className} ${isActive ? props.__internal__activeClass : ''}`,
+    [isActive, props.className, props.__internal__activeClass]
+  );
+
   return (
     <Component
       {...restProps}
       childrenIndex={childrenIndex}
-      isActive={isActive}
+      className={className}
       onClick={onClick}
     />
   );

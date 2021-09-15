@@ -7,6 +7,7 @@ import { TabsContext } from './facade';
 // ------------------------------------
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
+  activeClass?: string;
   childrenWithProps: Record<string, unknown>[] | null | undefined;
   value: number;
 };

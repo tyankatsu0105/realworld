@@ -20,7 +20,10 @@ const Tabs: React.FC<Props> = (props) => {
     props.children,
     (child, __internal__childrenIndex) => {
       if (React.isValidElement(child)) {
-        return React.cloneElement(child, { __internal__childrenIndex });
+        return React.cloneElement(child, {
+          __internal__activeClass: props.activeClass || 'active',
+          __internal__childrenIndex,
+        });
       }
 
       return child;
