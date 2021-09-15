@@ -32,11 +32,8 @@ const Button = styled.button`
 
   :disabled {
     cursor: not-allowed;
-    color: ${() => Theme.palettes.brand.primary[200]};
-    background-color: ${() => Theme.palettes.brand.primary[900]};
-
-    &:hover {
-      background-color: ${() => Theme.palettes.brand.primary[900]};
-    }
+    color: ${() => Theme.palettes.brand.primary[200]} !important;
+    background-color: ${() => Theme.palettes.brand.primary[900]} !important;
+    border: 0 !important;
   }
 `;

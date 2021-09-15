@@ -10,7 +10,14 @@ export default {
 const Template: ComponentStory<typeof ButtonAccent> = (args) => {
   const { children, ...restArgs } = args;
 
-  return <ButtonAccent {...restArgs}>{children}</ButtonAccent>;
+  return (
+    <>
+      <ButtonAccent {...restArgs}>{children}</ButtonAccent>
+      <ButtonAccent {...restArgs} disabled>
+        disabled
+      </ButtonAccent>
+    </>
+  );
 };
 
 export const Outlined = Template.bind({});

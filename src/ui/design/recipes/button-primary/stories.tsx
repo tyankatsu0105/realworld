@@ -10,7 +10,14 @@ export default {
 const Template: ComponentStory<typeof ButtonPrimary> = (args) => {
   const { children, ...restArgs } = args;
 
-  return <ButtonPrimary {...restArgs}>{children}</ButtonPrimary>;
+  return (
+    <>
+      <ButtonPrimary {...restArgs}>{children}</ButtonPrimary>
+      <ButtonPrimary {...restArgs} disabled>
+        disabled
+      </ButtonPrimary>
+    </>
+  );
 };
 
 export const Outlined = Template.bind({});
