@@ -17,24 +17,24 @@ export const Primary = () => {
   }, []);
   return (
     <Tabs value={value}>
-      <StyledTab onClick={handleChange} tabIndex={0}>
+      <Tab onClick={handleChange} tabIndex={0}>
         tab 1
-      </StyledTab>
-      <StyledTab onClick={handleChange} tabIndex={0}>
+      </Tab>
+      <Tab onClick={handleChange} tabIndex={0}>
         tab 2
-      </StyledTab>
-      <StyledTab onClick={() => alert('a')} tabIndex={0}>
+      </Tab>
+      <Tab
+        onClick={(i) => {
+          handleChange(i);
+          alert('a');
+        }}
+        tabIndex={0}
+      >
         alert
-      </StyledTab>
-      <StyledTab>
+      </Tab>
+      <Tab onClick={handleChange}>
         <Link to="/">link</Link>
-      </StyledTab>
+      </Tab>
     </Tabs>
   );
 };
-
-const StyledTab = styled(Tab)`
-  &.active {
-    color: red;
-  }
-`;

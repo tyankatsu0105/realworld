@@ -9,7 +9,7 @@ import { Component } from './presentational';
 
 type Props = Omit<
   React.ComponentPropsWithRef<typeof Component>,
-  'isActive' | 'childrenIndex'
+  'isActive' | 'childrenIndex' | 'activeClass'
 > & {
   __internal__activeClass?: string;
   __internal__childrenIndex?: number;
@@ -20,7 +20,11 @@ type Props = Omit<
 // ------------------------------------
 
 const Tab: React.FC<Props> = (props: Props) => {
-  const { __internal__childrenIndex, ...restProps } = props;
+  const {
+    __internal__activeClass,
+    __internal__childrenIndex,
+    ...restProps
+  } = props;
   const childrenIndex = __internal__childrenIndex || 0;
   const currentTabValue = React.useContext(TabsContext);
 
@@ -28,6 +32,10 @@ const Tab: React.FC<Props> = (props: Props) => {
     () => __internal__childrenIndex === currentTabValue,
     [__internal__childrenIndex, currentTabValue]
   );
+
+  const activeClass = React.useMemo(() => __internal__activeClass || 'active', [
+    __internal__activeClass,
+  ]);
 
   const onClick = React.useCallback(
     (
@@ -40,13 +48,14 @@ const Tab: React.FC<Props> = (props: Props) => {
   );
 
   const className = React.useMemo(
-    () => `${props.className} ${isActive ? props.__internal__activeClass : ''}`,
-    [isActive, props.className, props.__internal__activeClass]
+    () => `${props.className} ${isActive ? activeClass : ''}`,
+    [isActive, props.className, activeClass]
   );
 
   return (
     <Component
       {...restProps}
+      activeClass={activeClass}
       childrenIndex={childrenIndex}
       className={className}
       onClick={onClick}

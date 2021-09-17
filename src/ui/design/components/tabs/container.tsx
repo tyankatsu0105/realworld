@@ -5,11 +5,8 @@ import { Component } from './presentational';
 // ------------------------------------
 // Props
 // ------------------------------------
-
-type Props = Omit<
-  React.ComponentPropsWithRef<typeof Component>,
-  'childrenWithProps'
->;
+type ComponentProps = React.ComponentPropsWithRef<typeof Component>;
+type Props = Omit<ComponentProps, 'childrenWithProps'>;
 
 // ------------------------------------
 // Component
@@ -21,7 +18,7 @@ const Tabs: React.FC<Props> = (props) => {
     (child, __internal__childrenIndex) => {
       if (React.isValidElement(child)) {
         return React.cloneElement(child, {
-          __internal__activeClass: props.activeClass || 'active',
+          __internal__activeClass: props.activeClass,
           __internal__childrenIndex,
         });
       }

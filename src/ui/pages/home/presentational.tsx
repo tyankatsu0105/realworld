@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { TwoColumn } from '~ui/design/layout';
-import { Header } from '~ui/design/recipes';
+import { Header, TabsFeed } from '~ui/design/recipes';
 
 // ------------------------------------
 // Props
@@ -11,9 +11,6 @@ import { Header } from '~ui/design/recipes';
 // Component
 // ------------------------------------
 
-const renderMiddle = () => <div>middle</div>;
-const renderRight = () => <div>right</div>;
-
 const Presentational = () => (
   <>
     <Header />
@@ -22,3 +19,6 @@ const Presentational = () => (
 );
 
 export const Component = React.memo(Presentational);
+
+const renderMiddle = () => <TabsFeed />;
+const renderRight = () => <div>right</div>;

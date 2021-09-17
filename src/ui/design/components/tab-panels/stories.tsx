@@ -1,4 +1,3 @@
-import { styled } from '@linaria/react';
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -16,15 +15,15 @@ export const Primary = () => {
   return (
     <>
       <Tabs value={value}>
-        <StyledTab onClick={handleChange} tabIndex={0}>
+        <Tab onClick={handleChange} tabIndex={0}>
           tab 1
-        </StyledTab>
-        <StyledTab onClick={handleChange} tabIndex={0}>
+        </Tab>
+        <Tab onClick={handleChange} tabIndex={0}>
           tab 2
-        </StyledTab>
-        <StyledTab onClick={handleChange} tabIndex={0}>
+        </Tab>
+        <Tab onClick={handleChange} tabIndex={0}>
           tab 3
-        </StyledTab>
+        </Tab>
       </Tabs>
 
       <div>
@@ -37,9 +36,3 @@ export const Primary = () => {
     </>
   );
 };
-
-const StyledTab = styled(Tab)`
-  &.active {
-    color: red;
-  }
-`;
