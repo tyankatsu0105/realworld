@@ -7,7 +7,7 @@ import { Theme } from '~ui/styles';
 // Props
 // ------------------------------------
 
-type Props = React.HTMLAttributes<HTMLElement> & {};
+type Props = React.HTMLAttributes<HTMLElement>;
 
 // ------------------------------------
 // Component

@@ -7,7 +7,7 @@ import { Theme } from '~ui/styles';
 // Props
 // ------------------------------------
 
-type Props = React.HTMLAttributes<HTMLElement> & {};
+type Props = React.HTMLAttributes<HTMLElement>;
 
 const Presentational: React.FC<Props> = (props) => {
   const { children, ...restProps } = props;

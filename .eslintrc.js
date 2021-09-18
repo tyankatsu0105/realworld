@@ -36,6 +36,14 @@ module.exports = {
         'typescript-sort-keys/interface': 'warn',
         'typescript-sort-keys/string-enum': 'warn',
       },
+      overrides: [
+        {
+          files: ['**/stories.tsx'],
+          rules: {
+            'react/display-name': 'off',
+          },
+        },
+      ],
     },
   ],
   root: true,

@@ -7,7 +7,7 @@ import { Theme } from '~ui/styles';
 // Props
 // ------------------------------------
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {};
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 // ------------------------------------
 // Component
