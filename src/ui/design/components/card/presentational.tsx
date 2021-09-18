@@ -22,9 +22,9 @@ const Presentational = (props: Props) => {
 
   return (
     <Wrap {...restProps}>
-      {renderHeader && <Header>{renderHeader()}</Header>}
-      {renderBody && <Body>{renderBody()}</Body>}
-      {renderFooter && <Footer>{renderFooter()}</Footer>}
+      {renderHeader && renderHeader()}
+      {renderBody && renderBody()}
+      {renderFooter && renderFooter()}
     </Wrap>
   );
 };
@@ -39,6 +39,3 @@ const Wrap = styled.div`
   border-radius: 6px;
   background-color: ${() => Theme.palettes.material.common.white};
 `;
-const Header = styled.div``;
-const Body = styled.div``;
-const Footer = styled.div``;

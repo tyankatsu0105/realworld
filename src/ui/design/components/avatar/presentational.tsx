@@ -20,10 +20,10 @@ type Props = React.ImgHTMLAttributes<HTMLImageElement> & {
 // ------------------------------------
 
 const Presentational = (props: Props) => {
-  const { className, variant, ...restProps } = props;
+  const { className, style, variant, ...restProps } = props;
 
   return (
-    <Wrap className={className} variant={variant}>
+    <Wrap className={className} style={style} variant={variant}>
       {props.src ? <Img {...restProps} /> : <Avatar />}
     </Wrap>
   );
