@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { Tab, TabPanel, TabPanels, Tabs } from '~ui/design/components';
+import { CardArticle } from '~ui/design/recipes';
 // ------------------------------------
 // Props
 // ------------------------------------
@@ -17,7 +18,11 @@ const Presentational = () => (
     </Tabs>
 
     <TabPanels value={0}>
-      <TabPanel>Global Feed</TabPanel>
+      <TabPanel>
+        <CardArticle></CardArticle>
+        <CardArticle></CardArticle>
+        <CardArticle></CardArticle>
+      </TabPanel>
     </TabPanels>
   </>
 );

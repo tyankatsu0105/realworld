@@ -1,3 +1,4 @@
+import { styled } from '@linaria/react';
 import * as React from 'react';
 
 import { useIcons } from './facade';
@@ -7,6 +8,7 @@ import { useIcons } from './facade';
 
 type Props = React.HTMLAttributes<HTMLElement> & {
   icons: ReturnType<typeof useIcons>;
+  size?: string;
   variant: keyof ReturnType<typeof useIcons>;
 };
 
@@ -15,14 +17,22 @@ type Props = React.HTMLAttributes<HTMLElement> & {
 // ------------------------------------
 
 const Presentational = (props: Props) => {
-  const { icons, variant, ...restProps } = props;
+  const { icons, size, variant, ...restProps } = props;
   const Component = React.useMemo(() => icons[variant], [variant, icons]);
 
   return (
-    <div {...restProps}>
+    <Wrap size={size} {...restProps}>
       <Component style={{ width: '100%' }} />
-    </div>
+    </Wrap>
   );
 };
 
 export const Component = React.memo(Presentational);
+
+type WrapProps = {
+  size?: Props['size'];
+};
+const Wrap = styled.div<WrapProps>`
+  width: ${(props) => props.size ?? 'auto'};
+  height: ${(props) => props.size ?? 'auto'};
+`;

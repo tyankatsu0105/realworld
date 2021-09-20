@@ -2,7 +2,6 @@ import { styled } from '@linaria/react';
 import * as React from 'react';
 
 import { Theme } from '~ui/styles';
-
 // ------------------------------------
 // Props
 // ------------------------------------
