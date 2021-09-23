@@ -1,7 +1,5 @@
-import { styled } from '@linaria/react';
 import * as React from 'react';
-
-import { Theme } from '~ui/styles';
+import styled from 'styled-components';
 
 import { ReactComponent as Avatar } from './assets/avatar.svg';
 import { variant } from './facade';
@@ -54,8 +52,8 @@ const Wrap = styled.div<WrapProps>`
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: ${() => Theme.palettes.brand.primary[100]};
-  color: ${() => Theme.palettes.brand.primary[700]};
+  background-color: ${(props) => props.theme.palettes.brand.primary[100]};
+  color: ${(props) => props.theme.palettes.brand.primary[700]};
   overflow: hidden;
   flex-shrink: 0;
   flex-grow: 0;

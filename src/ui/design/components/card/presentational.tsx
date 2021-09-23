@@ -1,7 +1,6 @@
-import { styled } from '@linaria/react';
 import * as React from 'react';
+import styled from 'styled-components';
 
-import { Theme } from '~ui/styles';
 // ------------------------------------
 // Props
 // ------------------------------------
@@ -36,5 +35,5 @@ export const Component = React.memo(Presentational);
 
 const Wrap = styled.div`
   border-radius: 6px;
-  background-color: ${() => Theme.palettes.material.common.white};
+  background-color: ${(props) => props.theme.palettes.material.common.white};
 `;

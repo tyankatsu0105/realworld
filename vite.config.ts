@@ -1,6 +1,5 @@
-import pluginLinaria from '@linaria/rollup';
 import pluginSVGR from '@svgr/rollup';
-import reactRefresh from '@vitejs/plugin-react-refresh';
+import react from '@vitejs/plugin-react';
 import * as path from 'path';
 import { defineConfig, Plugin, UserConfig } from 'vite';
 
@@ -16,32 +15,19 @@ export const createConfig = (rootPath: string): UserConfig => {
 
   return {
     plugins: [
-      reactRefresh(),
-      (pluginSVGR() as unknown) as Plugin,
-      pluginLinaria({
-        /**
-         * NOTE: https://github.com/callstack/linaria/issues/811#issuecomment-890926268
-         * https://github.com/callstack/linaria/issues/630
-         */
-        babelOptions: {
+      react({
+        babel: {
           plugins: [
             [
-              require.resolve('babel-plugin-module-resolver'),
+              'babel-plugin-styled-components',
               {
-                alias,
-                root: ['./'],
+                displayName: process.env.NODE_ENV !== 'production',
               },
             ],
           ],
-          presets: [
-            require.resolve('@babel/preset-react'),
-            require.resolve('@babel/preset-typescript'),
-            require.resolve('@linaria/babel-preset'),
-          ],
         },
-        displayName: process.env.NODE_ENV !== 'production',
-        sourceMap: process.env.NODE_ENV !== 'production',
       }),
+      (pluginSVGR() as unknown) as Plugin,
     ],
 
     resolve: {

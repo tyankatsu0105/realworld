@@ -1,6 +1,6 @@
-import { styled } from '@linaria/react';
 import { ComponentMeta } from '@storybook/react';
 import * as React from 'react';
+import styled from 'styled-components';
 
 import { useIcons } from './facade';
 import { Icon } from './index';

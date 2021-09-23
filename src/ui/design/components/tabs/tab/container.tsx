@@ -1,4 +1,4 @@
-import { cx } from '@linaria/core';
+import classNames from 'classnames';
 import * as React from 'react';
 
 import { TabsContext } from '../facade';
@@ -49,7 +49,7 @@ const Tab: React.FC<Props> = (props: Props) => {
   );
 
   const className = React.useMemo(
-    () => cx(props.className, isActive && activeClass),
+    () => classNames(props.className, isActive && activeClass),
     [isActive, props.className, activeClass]
   );
 

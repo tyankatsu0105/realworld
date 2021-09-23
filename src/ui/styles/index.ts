@@ -1,1 +1,2 @@
-export * as Theme from './theme';
+export * from './globals';
+export * from './theme';

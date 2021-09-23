@@ -1,7 +1,5 @@
-import { styled } from '@linaria/react';
 import * as React from 'react';
-
-import { Theme } from '~ui/styles';
+import styled from 'styled-components';
 
 // ------------------------------------
 // Props
@@ -45,24 +43,25 @@ type WrapProps = {
 const Wrap = styled.div<WrapProps>`
   display: inline-flex;
   align-items: center;
-  padding: ${() => Theme.spacer(1)}px ${() => Theme.spacer(2)}px;
+  padding: ${(props) => props.theme.spacer(1)}px
+    ${(props) => props.theme.spacer(2)}px;
   border-radius: 16px;
 
-  background-color: ${() => Theme.palettes.brand.primary[300]};
-  color: ${() => Theme.palettes.material.common.white};
+  background-color: ${(props) => props.theme.palettes.brand.primary[300]};
+  color: ${(props) => props.theme.palettes.material.common.white};
 
-  cursor: ${(props) => (props.isClickable ? 'pointer' : 'auto')};
+  cursor: ${(props) => props.isClickable && 'pointer'};
 `;
 
 const Avatar = styled.div`
-  margin-right: ${() => Theme.spacer(1)}px;
+  margin-right: ${(props) => props.theme.spacer(1)}px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
 `;
 
 const ClearButton = styled.div`
-  margin-left: ${() => Theme.spacer(1)}px;
+  margin-left: ${(props) => props.theme.spacer(1)}px;
   display: inline-flex;
   justify-content: center;
   align-items: center;

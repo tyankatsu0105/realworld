@@ -1,8 +1,7 @@
-import { styled } from '@linaria/react';
 import * as React from 'react';
+import styled from 'styled-components';
 
 import { Icon } from '~ui/design/components';
-import { Theme } from '~ui/styles';
 
 // ------------------------------------
 // Props
@@ -25,7 +24,7 @@ export const Component = React.memo(Presentational);
 // ------------------------------------
 
 const StyledIcon = styled(Icon)`
-  color: ${() => Theme.palettes.brand.accent.A700};
+  color: ${(props) => props.theme.palettes.brand.accent.A700};
   width: 100px;
 `;
 
@@ -40,5 +39,5 @@ const Wrap = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: ${() => Theme.palettes.brand.primary[50]};
+  background-color: ${(props) => props.theme.palettes.brand.primary[50]};
 `;

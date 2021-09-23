@@ -1,7 +1,5 @@
-import { styled } from '@linaria/react';
 import * as React from 'react';
-
-import { Theme } from '~ui/styles';
+import styled from 'styled-components';
 
 import { Color, Variant } from './facade';
 
@@ -54,14 +52,16 @@ type BaseProps = {
   variant: Props['variant'];
 };
 const Base = styled.button<BaseProps>`
-  padding: ${() => Theme.spacer(3)}px ${() => Theme.spacer(2)}px;
+  padding: ${(props) => props.theme.spacer(3)}px
+    ${(props) => props.theme.spacer(2)}px;
   border-radius: 6px;
   font-weight: bold;
 
   :disabled {
     cursor: not-allowed;
-    color: ${() => Theme.palettes.brand.primary[200]} !important;
-    background-color: ${() => Theme.palettes.brand.primary[900]} !important;
+    color: ${(props) => props.theme.palettes.brand.primary[200]} !important;
+    background-color: ${(props) =>
+      props.theme.palettes.brand.primary[900]} !important;
     border: 0 !important;
   }
 `;
@@ -70,10 +70,10 @@ const Contained = styled(Base)`
   background-color: ${(props) => {
     switch (props.color) {
       case 'primary':
-        return Theme.palettes.brand.primary[100];
+        return props.theme.palettes.brand.primary[100];
 
       case 'accent':
-        return Theme.palettes.brand.accent.A200;
+        return props.theme.palettes.brand.accent.A200;
     }
   }};
 
@@ -81,10 +81,10 @@ const Contained = styled(Base)`
     background-color: ${(props) => {
       switch (props.color) {
         case 'primary':
-          return Theme.palettes.brand.primary[200];
+          return props.theme.palettes.brand.primary[200];
 
         case 'accent':
-          return Theme.palettes.brand.accent.A400;
+          return props.theme.palettes.brand.accent.A400;
       }
     }};
   }
@@ -94,10 +94,10 @@ const Outlined = styled(Base)`
     ${(props) => {
       switch (props.color) {
         case 'primary':
-          return Theme.palettes.brand.primary[200];
+          return props.theme.palettes.brand.primary[200];
 
         case 'accent':
-          return Theme.palettes.brand.accent.A700;
+          return props.theme.palettes.brand.accent.A700;
       }
     }};
 
@@ -105,10 +105,10 @@ const Outlined = styled(Base)`
     background-color: ${(props) => {
       switch (props.color) {
         case 'primary':
-          return Theme.palettes.brand.primary[100];
+          return props.theme.palettes.brand.primary[100];
 
         case 'accent':
-          return Theme.palettes.brand.accent.A200;
+          return props.theme.palettes.brand.accent.A200;
       }
     }};
   }
@@ -118,10 +118,10 @@ const Text = styled(Base)`
     background-color: ${(props) => {
       switch (props.color) {
         case 'primary':
-          return Theme.palettes.brand.primary[100];
+          return props.theme.palettes.brand.primary[100];
 
         case 'accent':
-          return Theme.palettes.brand.accent.A200;
+          return props.theme.palettes.brand.accent.A200;
       }
     }};
   }

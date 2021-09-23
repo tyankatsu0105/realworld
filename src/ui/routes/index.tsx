@@ -6,13 +6,7 @@ import { PageLoader } from '~ui/design/recipes';
 import * as Home from '~ui/pages/home';
 
 export const Component = () => (
-  <React.Suspense
-    fallback={
-      <section>
-        <PageLoader />
-      </section>
-    }
-  >
+  <React.Suspense fallback={<PageLoader />}>
     <Switch>
       <Route exact component={Home.Component} path={URI.home} />
     </Switch>

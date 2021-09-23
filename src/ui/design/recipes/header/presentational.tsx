@@ -1,11 +1,10 @@
-import { styled } from '@linaria/react';
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { URI } from '~application/presenter/route';
 import logo from '~ui/assets/logo.svg';
 import { AppBarLazy } from '~ui/design/components';
-import { Theme } from '~ui/styles';
 
 // ------------------------------------
 // Props
@@ -64,10 +63,10 @@ const LayoutBox = styled.div`
 
 const HeaderNavItem = styled(NavLink)`
   & + & {
-    margin-left: ${() => Theme.spacer(3)}px;
+    margin-left: ${(props) => props.theme.spacer(3)}px;
   }
 
   &.active {
-    color: ${() => Theme.palettes.brand.accent.A700};
+    color: ${(props) => props.theme.palettes.brand.accent.A700};
   }
 `;

@@ -1,7 +1,5 @@
-import { styled } from '@linaria/react';
 import * as React from 'react';
-
-import { Theme } from '~ui/styles';
+import styled from 'styled-components';
 
 // ------------------------------------
 // Props
@@ -56,5 +54,6 @@ const Wrap = styled.div<WrapProps>`
   }};
 
   column-gap: 10px;
-  padding: ${() => Theme.spacer(3)}px ${() => Theme.spacer(25)}px;
+  padding: ${(props) => props.theme.spacer(3)}px
+    ${(props) => props.theme.spacer(25)}px;
 `;

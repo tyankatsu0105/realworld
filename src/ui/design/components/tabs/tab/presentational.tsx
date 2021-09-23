@@ -1,10 +1,6 @@
-import { css } from '@linaria/core';
-import { styled } from '@linaria/react';
 import * as React from 'react';
+import styled from 'styled-components';
 
-import { hasActiveClass } from '~ui/shared/utilities';
-import { Theme } from '~ui/styles';
-css;
 // ------------------------------------
 // Props
 // ------------------------------------
@@ -53,30 +49,24 @@ type StyledTabProps = {
 const StyledTab = styled.div<StyledTabProps>`
   font-size: 20px;
   cursor: pointer;
-  padding-bottom: ${() => Theme.spacer(1)}px;
+  padding-bottom: ${(props) => props.theme.spacer(1)}px;
 
-  border-bottom: 0 solid ${() => Theme.palettes.brand.accent.A400};
+  border-bottom: 3px solid transparent;
 
   &:hover {
-    border-bottom-width: 3px;
+    border-bottom-color: ${(props) =>
+      props.theme.color.transparentize({
+        alpha: 0.5,
+        color: props.theme.palettes.brand.accent.A400,
+      })};
   }
 
-  border-bottom-width: ${(props) =>
-    hasActiveClass({
-      activeClass: props.activeClass,
-      className: props.className,
-    })
-      ? `3px`
-      : 0};
-  font-weight: ${(props) =>
-    hasActiveClass({
-      activeClass: props.activeClass,
-      className: props.className,
-    })
-      ? `bold`
-      : 'normal'};
+  &.${(props) => props.activeClass} {
+    border-bottom-color: ${(props) => props.theme.palettes.brand.accent.A400};
+    font-weight: bold;
+  }
 
   & + & {
-    margin-left: ${() => Theme.spacer(5)}px;
+    margin-left: ${(props) => props.theme.spacer(5)}px;
   }
 `;

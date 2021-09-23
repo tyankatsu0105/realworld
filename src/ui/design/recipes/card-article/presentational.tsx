@@ -1,9 +1,8 @@
-import { styled } from '@linaria/react';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { Avatar, Card, Icon } from '~ui/design/components';
-import { Theme } from '~ui/styles';
 
 // ------------------------------------
 // Props
@@ -29,7 +28,7 @@ export const Component = React.memo(Presentational);
 
 const StyledCard = styled(Card)`
   & + & {
-    margin-top: ${() => Theme.spacer(7)}px;
+    margin-top: ${(props) => props.theme.spacer(7)}px;
   }
 `;
 
@@ -57,7 +56,7 @@ const Header = () => (
 // ------------------------------------
 
 const HeaderWrap = styled.div`
-  padding: ${() => Theme.spacer(2)}px;
+  padding: ${(props) => props.theme.spacer(2)}px;
 `;
 
 const HeaderAuthor = styled(Link)`
@@ -66,11 +65,11 @@ const HeaderAuthor = styled(Link)`
   height: 100%;
 `;
 const HeaderStyledAvatar = styled(Avatar)`
-  margin-right: ${() => Theme.spacer(2)}px;
+  margin-right: ${(props) => props.theme.spacer(2)}px;
 `;
 const HeaderPostDate = styled.p`
   font-size: 14px;
-  color: ${() => Theme.palettes.material.gray[500]};
+  color: ${(props) => props.theme.palettes.material.gray[500]};
 `;
 
 // ------------------------------------
@@ -90,7 +89,7 @@ const Body = () => (
 // ------------------------------------
 
 const BodyWrap = styled.div`
-  padding: ${() => Theme.spacer(2)}px;
+  padding: ${(props) => props.theme.spacer(2)}px;
 `;
 const BodyArticleLink = styled(Link)`
   display: block;
@@ -143,24 +142,24 @@ const Footer = () => (
 // ------------------------------------
 
 const FooterWrap = styled.div`
-  padding: ${() => Theme.spacer(2)}px;
+  padding: ${(props) => props.theme.spacer(2)}px;
 `;
 const FooterTagList = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `;
 const FooterTagListItem = styled(Link)`
-  margin-right: ${() => Theme.spacer(3)}px;
-  margin-bottom: ${() => Theme.spacer(3)}px;
+  margin-right: ${(props) => props.theme.spacer(3)}px;
+  margin-bottom: ${(props) => props.theme.spacer(3)}px;
 `;
 const FooterIconList = styled.ul`
-  margin-top: ${() => Theme.spacer(1)}px;
+  margin-top: ${(props) => props.theme.spacer(1)}px;
   display: flex;
   flex-wrap: wrap;
 `;
 const FooterIconListItem = styled.li`
-  margin-right: ${() => Theme.spacer(3)}px;
-  margin-bottom: ${() => Theme.spacer(3)}px;
+  margin-right: ${(props) => props.theme.spacer(3)}px;
+  margin-bottom: ${(props) => props.theme.spacer(3)}px;
 `;
 const FooterIconListItemLink = styled(Link)`
   display: block;
@@ -170,5 +169,5 @@ const FooterIconListItemInner = styled.div`
   align-items: center;
 `;
 const FooterIconListItemText = styled.span`
-  margin-left: ${() => Theme.spacer(1)}px;
+  margin-left: ${(props) => props.theme.spacer(1)}px;
 `;
