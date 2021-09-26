@@ -15,9 +15,15 @@ type OverridableComponentProps<
   Omit<React.ComponentPropsWithRef<Component>, keyof asProp<Component>> &
   Props;
 
+type ElementAttr<
+  Element extends React.ElementType
+> = Element extends keyof JSX.IntrinsicElements
+  ? JSX.IntrinsicElements[Element]
+  : never;
+
 export type OverridableComponent<
-  Component extends React.ElementType,
+  Element extends React.ElementType,
   Props = unknown
-> = <DefaultElement extends React.ElementType = Component>(
-  props: OverridableComponentProps<DefaultElement, Props>
+> = <Component extends React.ElementType = Element>(
+  props: OverridableComponentProps<Component, Props> & ElementAttr<Element>
 ) => JSX.Element | null;

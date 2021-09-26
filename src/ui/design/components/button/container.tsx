@@ -1,18 +1,21 @@
 import * as React from 'react';
 
-import { Component } from './presentational';
+import { Types } from '~ui/shared';
 
+import { Component } from './presentational';
 // ------------------------------------
 // Props
 // ------------------------------------
 
-type Props = React.ComponentPropsWithRef<typeof Component>;
+type Props = React.ComponentProps<typeof Component>;
 
 // ------------------------------------
 // Component
 // ------------------------------------
 
-const Button: React.FC<Props> = (props) => {
+const Button: Types.Component.OverridableComponent<'button', Props> = (
+  props
+) => {
   return <Component {...props} />;
 };
 

@@ -24,6 +24,7 @@ const Template: ComponentStory<typeof Button> = (args) => {
 
 export const Component = Template.bind({});
 Component.args = {
+  as: 'a',
   children: 'button',
   color: 'primary',
   variant: 'contained',

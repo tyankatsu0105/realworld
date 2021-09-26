@@ -1,13 +1,15 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+import { Types } from '~ui/shared';
+
 import { Color, Variant } from './facade';
 
 // ------------------------------------
 // Props
 // ------------------------------------
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type Props = {
   color: Color;
   variant: Variant;
 };
@@ -16,7 +18,9 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 // Component
 // ------------------------------------
 
-const Presentational: React.FC<Props> = (props) => {
+const Presentational: Types.Component.OverridableComponent<'button', Props> = (
+  props
+) => {
   const { children, color, variant, ...restProps } = props;
 
   switch (props.variant) {
@@ -56,6 +60,7 @@ const Base = styled.button<BaseProps>`
     ${(props) => props.theme.spacer(2)}px;
   border-radius: 6px;
   font-weight: bold;
+  display: inline-block;
 
   :disabled {
     cursor: not-allowed;
