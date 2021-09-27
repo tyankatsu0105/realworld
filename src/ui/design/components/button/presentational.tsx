@@ -9,17 +9,26 @@ import { Color, Variant } from './facade';
 // Props
 // ------------------------------------
 
-type Props = {
+export type FeatureProps = {
   color: Color;
   variant: Variant;
 };
+
+export const DefaultElement = 'button';
+
+export type Props<
+  Element extends React.ElementType = typeof DefaultElement,
+  Props = Record<string, unknown>
+> = Types.Component.PolymorphicPropsWithRef<Props, Element>;
 
 // ------------------------------------
 // Component
 // ------------------------------------
 
-const Presentational: Types.Component.OverridableComponent<'button', Props> = (
-  props
+const Presentational = <
+  Element extends React.ElementType = typeof DefaultElement
+>(
+  props: Props<Element, FeatureProps>
 ) => {
   const { children, color, variant, ...restProps } = props;
 
@@ -45,15 +54,18 @@ const Presentational: Types.Component.OverridableComponent<'button', Props> = (
   }
 };
 
-export const Component = React.memo(Presentational);
+export const Component: Types.Component.PolymorphicMemoExoticComponent<
+  FeatureProps,
+  typeof DefaultElement
+> = React.memo(Presentational);
 
 // ------------------------------------
 // styles
 // ------------------------------------
 
 type BaseProps = {
-  color: Props['color'];
-  variant: Props['variant'];
+  color: FeatureProps['color'];
+  variant: FeatureProps['variant'];
 };
 const Base = styled.button<BaseProps>`
   padding: ${(props) => props.theme.spacer(3)}px

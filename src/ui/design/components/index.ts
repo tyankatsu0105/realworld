@@ -5,5 +5,6 @@ export * from './button';
 export * from './card';
 export * from './chip';
 export * from './icon';
+export * from './link';
 export * from './tab-panels';
 export * from './tabs';

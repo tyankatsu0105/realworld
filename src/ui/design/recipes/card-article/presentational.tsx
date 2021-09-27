@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import * as ReactRouterDOM from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Avatar, Card, Icon } from '~ui/design/components';
+import { Avatar, Button, Card, Icon, Link } from '~ui/design/components';
 
 // ------------------------------------
 // Props
@@ -78,9 +78,9 @@ const HeaderPostDate = styled.p`
 
 const Body = () => (
   <BodyWrap>
-    <BodyArticleLink to="/about/article">
+    <Link as={BodyArticleLink} color="accent" to="/about/article">
       <BodyArticleTitle>Clean architecture best practice</BodyArticleTitle>
-    </BodyArticleLink>
+    </Link>
   </BodyWrap>
 );
 
@@ -106,16 +106,24 @@ const BodyArticleTitle = styled.p`
 const Footer = () => (
   <FooterWrap>
     <FooterTagList>
-      <FooterTagListItem to="tags/hoge">#hoge</FooterTagListItem>
-      <FooterTagListItem to="tags/fuga">#fuga</FooterTagListItem>
-      <FooterTagListItem to="tags/foo">#foo</FooterTagListItem>
-      <FooterTagListItem to="tags/bar">#bar</FooterTagListItem>
-      <FooterTagListItem to="tags/lorem">
+      <Link as={FooterTagListItem} color="primary" to="tags/hoge">
+        #hoge
+      </Link>
+      <Link as={FooterTagListItem} color="primary" to="tags/fuga">
+        #fuga
+      </Link>
+      <Link as={FooterTagListItem} color="primary" to="tags/foo">
+        #foo
+      </Link>
+      <Link as={FooterTagListItem} color="primary" to="tags/bar">
+        #bar
+      </Link>
+      <Link as={FooterTagListItem} color="primary" to="tags/lorem">
         #Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit placeat
         fugiat accusamus? Debitis praesentium odit commodi temporibus iure unde
         nisi excepturi mollitia laboriosam labore quisquam, tempora laudantium
         cumque ratione blanditiis.
-      </FooterTagListItem>
+      </Link>
     </FooterTagList>
 
     <FooterIconList>
@@ -126,12 +134,17 @@ const Footer = () => (
         </FooterIconListItemInner>
       </FooterIconListItem>
       <FooterIconListItem>
-        <FooterIconListItemLink to="/article#comments">
+        <Button
+          as={FooterIconListItemLink}
+          color="primary"
+          to="/comment"
+          variant="text"
+        >
           <FooterIconListItemInner>
             <Icon size="20px" variant="comment" />
             <FooterIconListItemText>3 comments</FooterIconListItemText>
           </FooterIconListItemInner>
-        </FooterIconListItemLink>
+        </Button>
       </FooterIconListItem>
     </FooterIconList>
   </FooterWrap>
@@ -148,7 +161,7 @@ const FooterTagList = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `;
-const FooterTagListItem = styled(Link)`
+const FooterTagListItem = styled(ReactRouterDOM.Link)`
   margin-right: ${(props) => props.theme.spacer(3)}px;
   margin-bottom: ${(props) => props.theme.spacer(3)}px;
 `;
@@ -161,12 +174,14 @@ const FooterIconListItem = styled.li`
   margin-right: ${(props) => props.theme.spacer(3)}px;
   margin-bottom: ${(props) => props.theme.spacer(3)}px;
 `;
-const FooterIconListItemLink = styled(Link)`
+const FooterIconListItemLink = styled(ReactRouterDOM.Link)`
   display: block;
+  padding: 0;
 `;
 const FooterIconListItemInner = styled.div`
   display: flex;
   align-items: center;
+  padding: 10px;
 `;
 const FooterIconListItemText = styled.span`
   margin-left: ${(props) => props.theme.spacer(1)}px;

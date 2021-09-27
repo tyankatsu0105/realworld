@@ -1,1 +1,1 @@
-export * from './overridable-component';
+export * from './polymorphic-props';

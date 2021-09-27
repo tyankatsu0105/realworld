@@ -12,7 +12,7 @@ type FeatureProps = {};
 // Component
 // ------------------------------------
 
-const Button = <
+const Link = <
   Element extends React.ElementType = typeof Presentational.DefaultElement
 >(
   props: Presentational.Props<
@@ -23,4 +23,4 @@ const Button = <
   return <Presentational.Component {...props} />;
 };
 
-export default Button;
+export default Link;
