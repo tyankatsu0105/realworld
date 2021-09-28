@@ -79,7 +79,7 @@ const HeaderPostDate = styled.p`
 const Body = () => (
   <BodyWrap>
     <Link as={BodyArticleLink} color="accent" to="/about/article">
-      <BodyArticleTitle>Clean architecture best practice</BodyArticleTitle>
+      Clean architecture best practice
     </Link>
   </BodyWrap>
 );
@@ -92,9 +92,6 @@ const BodyWrap = styled.div`
   padding: ${(props) => props.theme.spacer(2)}px;
 `;
 const BodyArticleLink = styled(Link)`
-  display: block;
-`;
-const BodyArticleTitle = styled.p`
   font-size: 20px;
   font-weight: bold;
 `;
