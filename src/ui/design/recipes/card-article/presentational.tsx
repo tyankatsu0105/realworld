@@ -92,7 +92,7 @@ const BodyWrap = styled.div`
   padding: ${(props) => props.theme.spacer(2)}px;
 `;
 const BodyArticleLink = styled(Link)`
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 `;
 
