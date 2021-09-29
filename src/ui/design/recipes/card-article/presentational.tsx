@@ -59,7 +59,7 @@ const HeaderWrap = styled.div`
   padding: ${(props) => props.theme.spacer(2)}px;
 `;
 
-const HeaderAuthor = styled(Link)`
+const HeaderAuthor = styled(ReactRouterDOM.Link)`
   display: flex;
   align-items: flex-end;
   height: 100%;
@@ -91,7 +91,7 @@ const Body = () => (
 const BodyWrap = styled.div`
   padding: ${(props) => props.theme.spacer(2)}px;
 `;
-const BodyArticleLink = styled(Link)`
+const BodyArticleLink = styled(ReactRouterDOM.Link)`
   font-size: 30px;
   font-weight: bold;
 `;
