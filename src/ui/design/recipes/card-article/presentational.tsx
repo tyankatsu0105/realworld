@@ -119,8 +119,8 @@ type BodyProps = {
 const Body = (props: BodyProps) => (
   <BodyWrap>
     <Link
-      as={BodyArticleLink}
       color="accent"
+      component={BodyArticleLink}
       to={`/article/${props.articleSlug}`}
     >
       {props.articleTitle}
@@ -155,8 +155,8 @@ const Footer = (props: FooterProps) => (
       {props.tags.map((tag) => (
         <Link
           key={tag}
-          as={FooterTagListItem}
           color="primary"
+          component={FooterTagListItem}
           to={`tags/${tag}`}
         >
           #{tag}
@@ -175,8 +175,8 @@ const Footer = (props: FooterProps) => (
       </FooterIconListItem>
       <FooterIconListItem>
         <Button
-          as={FooterIconListItemLink}
           color="primary"
+          component={FooterIconListItemLink}
           to={`/article/${props.articleSlug}#comments`}
           variant="text"
         >

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { Types } from '~ui/shared';
+import { Utilities } from '~ui/shared';
 
 import { Color } from './facade';
 
@@ -18,7 +18,7 @@ export const DefaultElement = 'a';
 export type Props<
   Element extends React.ElementType = typeof DefaultElement,
   Props = Record<string, unknown>
-> = Types.Component.PolymorphicPropsWithRef<Props, Element>;
+> = Utilities.Component.PolymorphicPropsWithRef<Props, Element>;
 
 // ------------------------------------
 // Component
@@ -29,16 +29,20 @@ const Presentational = <
 >(
   props: Props<Element, FeatureProps>
 ) => {
-  const { children, color, ...restProps } = props;
+  const { children, color, component, ...restProps } = props;
 
   return (
-    <Link {...restProps} color={color}>
+    <Link
+      {...restProps}
+      as={Utilities.Component.componentToAs(component)}
+      color={color}
+    >
       {children}
     </Link>
   );
 };
 
-export const Component: Types.Component.PolymorphicMemoExoticComponent<
+export const Component: Utilities.Component.PolymorphicMemoExoticComponent<
   FeatureProps,
   typeof DefaultElement
 > = React.memo(Presentational);

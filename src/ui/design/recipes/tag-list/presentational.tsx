@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactRouterDOM from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Avatar, Button, Card, Icon, Link } from '~ui/design/components';
+import { Button, Card } from '~ui/design/components';
 
 // ------------------------------------
 // Props
@@ -51,40 +51,40 @@ const HeaderWrap = styled.p`
 const Body = () => (
   <BodyWrap>
     <Button
-      as={ReactRouterDOM.Link}
       color="primary"
+      component={ReactRouterDOM.Link}
       to="tags/hoge"
       variant="text"
     >
       #hoge
     </Button>
     <Button
-      as={ReactRouterDOM.Link}
       color="primary"
+      component={ReactRouterDOM.Link}
       to="tags/fuga"
       variant="text"
     >
       #fuga
     </Button>
     <Button
-      as={ReactRouterDOM.Link}
       color="primary"
+      component={ReactRouterDOM.Link}
       to="tags/foo"
       variant="text"
     >
       #foo
     </Button>
     <Button
-      as={ReactRouterDOM.Link}
       color="primary"
+      component={ReactRouterDOM.Link}
       to="tags/bar"
       variant="text"
     >
       #bar
     </Button>
     <Button
-      as={ReactRouterDOM.Link}
       color="primary"
+      component={ReactRouterDOM.Link}
       to="tags/lorem"
       variant="text"
     >
@@ -94,24 +94,24 @@ const Body = () => (
       cumque ratione blanditiis.
     </Button>
     <Button
-      as={ReactRouterDOM.Link}
       color="primary"
+      component={ReactRouterDOM.Link}
       to="tags/piyo"
       variant="text"
     >
       #piyo
     </Button>
     <Button
-      as={ReactRouterDOM.Link}
       color="primary"
+      component={ReactRouterDOM.Link}
       to="tags/cat"
       variant="text"
     >
       #cat
     </Button>
     <Button
-      as={ReactRouterDOM.Link}
       color="primary"
+      component={ReactRouterDOM.Link}
       to="tags/dog"
       variant="text"
     >

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { Types } from '~ui/shared';
+import { Utilities } from '~ui/shared';
 
 import { Color, Variant } from './facade';
 
@@ -19,7 +19,7 @@ export const DefaultElement = 'button';
 export type Props<
   Element extends React.ElementType = typeof DefaultElement,
   Props = Record<string, unknown>
-> = Types.Component.PolymorphicPropsWithRef<Props, Element>;
+> = Utilities.Component.PolymorphicPropsWithRef<Props, Element>;
 
 // ------------------------------------
 // Component
@@ -30,31 +30,46 @@ const Presentational = <
 >(
   props: Props<Element, FeatureProps>
 ) => {
-  const { children, color, variant, ...restProps } = props;
+  const { children, color, component, variant, ...restProps } = props;
 
   switch (props.variant) {
     case 'outlined':
       return (
-        <Outlined {...restProps} color={color} variant={variant}>
+        <Outlined
+          {...restProps}
+          as={Utilities.Component.componentToAs(component)}
+          color={color}
+          variant={variant}
+        >
           {children}
         </Outlined>
       );
     case 'contained':
       return (
-        <Contained {...restProps} color={color} variant={variant}>
+        <Contained
+          {...restProps}
+          as={Utilities.Component.componentToAs(component)}
+          color={color}
+          variant={variant}
+        >
           {children}
         </Contained>
       );
     case 'text':
       return (
-        <Text {...restProps} color={color} variant={variant}>
+        <Text
+          {...restProps}
+          as={Utilities.Component.componentToAs(component)}
+          color={color}
+          variant={variant}
+        >
           {children}
         </Text>
       );
   }
 };
 
-export const Component: Types.Component.PolymorphicMemoExoticComponent<
+export const Component: Utilities.Component.PolymorphicMemoExoticComponent<
   FeatureProps,
   typeof DefaultElement
 > = React.memo(Presentational);

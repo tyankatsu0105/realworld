@@ -1,10 +1,5 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-
-import { URI } from '~application/presenter/route';
-import logo from '~ui/assets/logo.svg';
-import { AppBarLazy } from '~ui/design/components';
 
 // ------------------------------------
 // Props

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { Types } from '~ui/shared';
+import { Utilities } from '~ui/shared';
 
 // ------------------------------------
 // Props
@@ -14,16 +14,21 @@ export const DefaultElement = 'div';
 export type Props<
   Element extends React.ElementType = typeof DefaultElement,
   Props = Record<string, unknown>
-> = Types.Component.PolymorphicPropsWithRef<Props, Element>;
+> = Utilities.Component.PolymorphicPropsWithRef<Props, Element>;
 
 const Presentational = <
   Element extends React.ElementType = typeof DefaultElement
 >(
   props: Props<Element, FeatureProps>
 ) => {
-  const { children, ...restProps } = props;
+  const { children, component, ...restProps } = props;
+  console.log({ restProps });
 
-  return <Wrap {...restProps}>{children}</Wrap>;
+  return (
+    <Wrap {...restProps} as={Utilities.Component.componentToAs(component)}>
+      {children}
+    </Wrap>
+  );
 };
 
 export const Component = React.memo(Presentational);

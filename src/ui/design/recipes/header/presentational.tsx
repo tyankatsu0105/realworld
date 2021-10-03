@@ -16,7 +16,7 @@ import { AppBarLazy } from '~ui/design/components';
 
 const Presentational = () => (
   <React.Suspense fallback={<div>loading AppBar...</div>}>
-    <StyledAppBar as="header">
+    <StyledAppBar component="header">
       <LayoutBox>
         <div>
           <NavLink to={URI.home}>
