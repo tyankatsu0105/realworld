@@ -6,12 +6,14 @@ import { Component } from './presentational';
 // Props
 // ------------------------------------
 
+type Props = React.ComponentPropsWithRef<typeof Component>;
+
 // ------------------------------------
 // Component
 // ------------------------------------
 
-const CardArticle = () => {
-  return <Component />;
+const CardArticle = (props: Props) => {
+  return <Component {...props} />;
 };
 
 export default CardArticle;

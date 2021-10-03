@@ -8,15 +8,51 @@ import { Avatar, Button, Card, Icon, Link } from '~ui/design/components';
 // Props
 // ------------------------------------
 
+/**
+ * TODO: move entity
+ */
+type Props = {
+  article: {
+    commentCount: number;
+    favoriteCount: number;
+    postedDate: string;
+    slug: string;
+    tags: string[];
+    title: string;
+  };
+  author: {
+    avatarSrc: string;
+    name: string;
+  };
+};
+
 // ------------------------------------
 // Component
 // ------------------------------------
 
-const Presentational = () => (
+const Presentational = (props: Props) => (
   <StyledCard
-    renderBody={() => <Body />}
-    renderFooter={() => <Footer />}
-    renderHeader={() => <Header />}
+    renderBody={() => (
+      <Body
+        articleSlug={props.article.slug}
+        articleTitle={props.article.title}
+      />
+    )}
+    renderFooter={() => (
+      <Footer
+        articleSlug={props.article.slug}
+        commentCount={props.article.commentCount}
+        favoriteCount={props.article.favoriteCount}
+        tags={props.article.tags}
+      />
+    )}
+    renderHeader={() => (
+      <Header
+        authorName={props.author.name}
+        avatarSrc={props.author.avatarSrc}
+        postedDate={props.article.postedDate}
+      />
+    )}
   />
 );
 
@@ -35,17 +71,18 @@ const StyledCard = styled(Card)`
 // ------------------------------------
 // Header
 // ------------------------------------
-
-const Header = () => (
+type HeaderProps = {
+  authorName: Props['author']['name'];
+  avatarSrc: Props['author']['avatarSrc'];
+  postedDate: Props['article']['postedDate'];
+};
+const Header = (props: HeaderProps) => (
   <HeaderWrap>
-    <HeaderAuthor to="/about/tyankatsu">
-      <HeaderStyledAvatar
-        src="https://avatars.githubusercontent.com/u/28397593"
-        variant="circle"
-      />
+    <HeaderAuthor to={`/profile/${props.authorName}`}>
+      <HeaderStyledAvatar src={props.avatarSrc} variant="circle" />
       <div>
-        <p>Tyankatsu</p>
-        <HeaderPostDate>September 18, 2021</HeaderPostDate>
+        <p>{props.authorName}</p>
+        <HeaderPostDate>{props.postedDate}</HeaderPostDate>
       </div>
     </HeaderAuthor>
   </HeaderWrap>
@@ -75,11 +112,18 @@ const HeaderPostDate = styled.p`
 // ------------------------------------
 // Body
 // ------------------------------------
-
-const Body = () => (
+type BodyProps = {
+  articleSlug: Props['article']['slug'];
+  articleTitle: Props['article']['title'];
+};
+const Body = (props: BodyProps) => (
   <BodyWrap>
-    <Link as={BodyArticleLink} color="accent" to="/about/article">
-      Clean architecture best practice
+    <Link
+      as={BodyArticleLink}
+      color="accent"
+      to={`/article/${props.articleSlug}`}
+    >
+      {props.articleTitle}
     </Link>
   </BodyWrap>
 );
@@ -99,47 +143,48 @@ const BodyArticleLink = styled(ReactRouterDOM.Link)`
 // ------------------------------------
 // Footer
 // ------------------------------------
-
-const Footer = () => (
+type FooterProps = {
+  articleSlug: Props['article']['slug'];
+  commentCount: Props['article']['commentCount'];
+  favoriteCount: Props['article']['favoriteCount'];
+  tags: Props['article']['tags'];
+};
+const Footer = (props: FooterProps) => (
   <FooterWrap>
     <FooterTagList>
-      <Link as={FooterTagListItem} color="primary" to="tags/hoge">
-        #hoge
-      </Link>
-      <Link as={FooterTagListItem} color="primary" to="tags/fuga">
-        #fuga
-      </Link>
-      <Link as={FooterTagListItem} color="primary" to="tags/foo">
-        #foo
-      </Link>
-      <Link as={FooterTagListItem} color="primary" to="tags/bar">
-        #bar
-      </Link>
-      <Link as={FooterTagListItem} color="primary" to="tags/lorem">
-        #Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit placeat
-        fugiat accusamus? Debitis praesentium odit commodi temporibus iure unde
-        nisi excepturi mollitia laboriosam labore quisquam, tempora laudantium
-        cumque ratione blanditiis.
-      </Link>
+      {props.tags.map((tag) => (
+        <Link
+          key={tag}
+          as={FooterTagListItem}
+          color="primary"
+          to={`tags/${tag}`}
+        >
+          #{tag}
+        </Link>
+      ))}
     </FooterTagList>
 
     <FooterIconList>
       <FooterIconListItem>
         <FooterIconListItemInner>
           <Icon size="20px" variant="heart" />
-          <FooterIconListItemText>10 favorites</FooterIconListItemText>
+          <FooterIconListItemText>
+            {props.favoriteCount} favorites
+          </FooterIconListItemText>
         </FooterIconListItemInner>
       </FooterIconListItem>
       <FooterIconListItem>
         <Button
           as={FooterIconListItemLink}
           color="primary"
-          to="/comment"
+          to={`/article/${props.articleSlug}#comments`}
           variant="text"
         >
           <FooterIconListItemInner>
             <Icon size="20px" variant="comment" />
-            <FooterIconListItemText>3 comments</FooterIconListItemText>
+            <FooterIconListItemText>
+              {props.favoriteCount} comments
+            </FooterIconListItemText>
           </FooterIconListItemInner>
         </Button>
       </FooterIconListItem>

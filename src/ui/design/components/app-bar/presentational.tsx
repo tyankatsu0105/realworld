@@ -1,13 +1,26 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+import { Types } from '~ui/shared';
+
 // ------------------------------------
 // Props
 // ------------------------------------
 
-type Props = React.HTMLAttributes<HTMLElement>;
+export type FeatureProps = {};
 
-const Presentational: React.FC<Props> = (props) => {
+export const DefaultElement = 'div';
+
+export type Props<
+  Element extends React.ElementType = typeof DefaultElement,
+  Props = Record<string, unknown>
+> = Types.Component.PolymorphicPropsWithRef<Props, Element>;
+
+const Presentational = <
+  Element extends React.ElementType = typeof DefaultElement
+>(
+  props: Props<Element, FeatureProps>
+) => {
   const { children, ...restProps } = props;
 
   return <Wrap {...restProps}>{children}</Wrap>;

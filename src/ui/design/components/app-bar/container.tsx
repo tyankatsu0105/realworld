@@ -1,19 +1,26 @@
 import * as React from 'react';
 
-import { Component } from './presentational';
+import * as Presentational from './presentational';
 
 // ------------------------------------
 // Props
 // ------------------------------------
 
-type Props = React.ComponentPropsWithRef<typeof Component>;
+type FeatureProps = {};
 
 // ------------------------------------
 // Component
 // ------------------------------------
 
-const AppBar = (props: Props) => {
-  return <Component {...props} />;
+const AppBar = <
+  Element extends React.ElementType = typeof Presentational.DefaultElement
+>(
+  props: Presentational.Props<
+    Element,
+    Presentational.FeatureProps & FeatureProps
+  >
+): JSX.Element => {
+  return <Presentational.Component {...props} />;
 };
 
 export default AppBar;
