@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+import { Link } from '~ui/design/components';
+
 // ------------------------------------
 // Props
 // ------------------------------------
@@ -11,7 +13,12 @@ import styled from 'styled-components';
 
 const Presentational = () => (
   <Wrap>
-    <Copyright>copyright</Copyright>
+    <Copyright>
+      copyright{' '}
+      <Link isExternal color="accent" href="https://tyankatsu.com">
+        tyankatsu
+      </Link>
+    </Copyright>
   </Wrap>
 );
 

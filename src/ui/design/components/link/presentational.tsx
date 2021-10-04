@@ -11,6 +11,7 @@ import { Color } from './facade';
 
 export type FeatureProps = {
   color: Color;
+  isExternal?: boolean;
 };
 
 export const DefaultElement = 'a';
@@ -29,11 +30,19 @@ const Presentational = <
 >(
   props: Props<Element, FeatureProps>
 ) => {
-  const { children, color, component, ...restProps } = props;
+  const { children, color, component, isExternal, ...restProps } = props;
+
+  const externalProps = props.isExternal
+    ? {
+        rel: 'noopener',
+        target: '_blank',
+      }
+    : {};
 
   return (
     <Link
       {...restProps}
+      {...externalProps}
       as={Utilities.Component.componentToAs(component)}
       color={color}
     >
