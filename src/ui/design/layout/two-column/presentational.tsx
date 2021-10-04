@@ -6,11 +6,15 @@ import styled from 'styled-components';
 // ------------------------------------
 
 type WithLeft = {
+  renderFooter?: () => React.ReactElement;
+  renderHeader?: () => React.ReactElement;
   renderLeft: () => React.ReactElement;
   renderMiddle: () => React.ReactElement;
   renderRight?: undefined;
 };
 type WithRight = {
+  renderFooter?: () => React.ReactElement;
+  renderHeader?: () => React.ReactElement;
   renderLeft?: undefined;
   renderMiddle: () => React.ReactElement;
   renderRight: () => React.ReactElement;
@@ -28,10 +32,16 @@ type Props = BaseProps & (WithLeft | WithRight);
 // ------------------------------------
 
 const Presentational = (props: Props) => (
-  <Wrap isLeft={props.isLeft} isRight={props.isRight}>
-    {props.renderLeft && <div>{props.renderLeft()}</div>}
-    <div>{props.renderMiddle()}</div>
-    {props.renderRight && <div>{props.renderRight()}</div>}
+  <Wrap>
+    {props.renderHeader && props.renderHeader()}
+
+    <Contents isLeft={props.isLeft} isRight={props.isRight}>
+      {props.renderLeft && props.renderLeft()}
+      <div>{props.renderMiddle()}</div>
+      {props.renderRight && props.renderRight()}
+    </Contents>
+
+    {props.renderFooter && props.renderFooter()}
   </Wrap>
 );
 
@@ -40,11 +50,19 @@ export const Component = React.memo(Presentational);
 // ------------------------------------
 // styles
 // ------------------------------------
-type WrapProps = {
+
+const Wrap = styled.div`
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+`;
+
+type ContentsProps = {
   isLeft: Props['isLeft'];
   isRight: Props['isRight'];
 };
-const Wrap = styled.div<WrapProps>`
+const Contents = styled.div<ContentsProps>`
   display: grid;
   grid-template-columns: ${(props) => {
     if (props.isLeft) return '400px 1fr';

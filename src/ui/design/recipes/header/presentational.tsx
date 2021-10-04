@@ -16,7 +16,7 @@ import { AppBarLazy } from '~ui/design/components';
 
 const Presentational = () => (
   <React.Suspense fallback={<div>loading AppBar...</div>}>
-    <StyledAppBar component="header">
+    <AppBarLazy component="header">
       <LayoutBox>
         <div>
           <NavLink to={URI.home}>
@@ -37,7 +37,7 @@ const Presentational = () => (
           </HeaderNavItem>
         </nav>
       </LayoutBox>
-    </StyledAppBar>
+    </AppBarLazy>
   </React.Suspense>
 );
 
@@ -47,11 +47,6 @@ export const Component = React.memo(Presentational);
 // styles
 // ------------------------------------
 
-const StyledAppBar = styled(AppBarLazy)`
-  position: sticky;
-  top: 0;
-  left: 0;
-`;
 const Logo = styled.img`
   width: 70px;
 `;

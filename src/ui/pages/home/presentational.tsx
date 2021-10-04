@@ -13,9 +13,12 @@ import { Footer, Header, TabsFeed, TagList } from '~ui/design/recipes';
 
 const Presentational = () => (
   <>
-    <Header />
-    <TwoColumn renderLeft={renderLeft} renderMiddle={renderMiddle} />
-    <Footer />
+    <TwoColumn
+      renderFooter={() => <Footer />}
+      renderHeader={() => <Header />}
+      renderLeft={renderLeft}
+      renderMiddle={renderMiddle}
+    />
   </>
 );
 
