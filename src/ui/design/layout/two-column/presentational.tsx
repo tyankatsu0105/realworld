@@ -71,7 +71,7 @@ const Contents = styled.div<ContentsProps>`
     return '';
   }};
 
-  column-gap: 10px;
+  column-gap: ${(props) => props.theme.spacer(6)}px;
   padding: ${(props) => props.theme.spacer(3)}px
     ${(props) => props.theme.spacer(25)}px;
 `;
